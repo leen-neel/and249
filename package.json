@@ -14,5 +14,8 @@
     "astro": "^2.7.2",
     "sass": "^1.63.6",
     "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "daisyui": "^3.1.7"
   }
 }

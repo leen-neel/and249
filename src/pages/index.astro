@@ -6,8 +6,45 @@ import "../assets/styles.scss";
 
 <Layout title="Welcome to Astro.">
   <main>
-    <section class="min-h-screen">
-      <h2 class="text-5xl">hi</h2>
+    <section class="hero flex items-center md:min-h-screen h-[80vh]">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap items-center">
+          <div class="w-full lg:w-1/2 px-4 hero-text">
+            <h2 class="">Greetings!</h2>
+            <h2 class="">
+              I'm <span
+                class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500"
+                >Neel</span
+              >
+            </h2>
+          </div>
+
+          <div class="w-full lg:w-1/2">
+            <img
+              src="https://and249.codes/images/Myself.jpeg"
+              alt="Hero Image"
+              class="max-w-full md:max-w-xl rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 </Layout>
+
+<style lang="scss">
+  .hero-text {
+    font-size: 6rem;
+  }
+
+  .hero-img {
+    border-radius: 50%;
+  }
+
+  // make the class above responsive
+  @media (max-width: 768px) {
+    .hero-text {
+      font-size: 4rem;
+    }
+  }
+</style>
