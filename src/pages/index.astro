@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Skill from "../components/Skill.astro";
 
-import { Icon } from "astro-icon";
+import Skill from "../components/Skill.astro";
+import Socials from "../components/Socials.astro";
 
 import "../assets/styles.scss";
+
 import skills from "../data/skills.json";
+import socials from "../data/socials.json";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -21,13 +23,23 @@ import skills from "../data/skills.json";
                 >Neel</span
               >
             </h2>
+
+            <div>
+              <ul class="flex gap-3">
+                {
+                  socials.map((social) => (
+                    <Socials link={social.link} icon={social.icon} />
+                  ))
+                }
+              </ul>
+            </div>
           </div>
 
           <div class="w-full lg:w-1/2 place-content-center grid">
             <img
               src="Myself.jpeg"
               alt="Hero Image"
-              class="max-w-full md:max-w-sm rounded-full shadow-2xl"
+              class="max-w-xs md:max-w-sm md:rounded-full rounded-lg shadow-2xl md:mt-0 mt-10"
             />
           </div>
         </div>
