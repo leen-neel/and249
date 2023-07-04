@@ -34,7 +34,7 @@ import skills from "../data/skills.json";
       </div>
     </section>
 
-    <section class="md:px-[10rem]">
+    <section class="md:px-[10rem] p-5 md:p-0">
       <ul class="grid grid-cols-2 gap-4 sm:grid-cols-2">
         {skills.map((skill) => <Skill name={skill.name} icon={skill.icon} />)}
       </ul>
