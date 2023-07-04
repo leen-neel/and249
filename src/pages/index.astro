@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Skill from "../components/Skill.astro";
 
 import { Icon } from "astro-icon";
 
 import "../assets/styles.scss";
+import skills from "../data/skills.json";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -32,29 +34,27 @@ import "../assets/styles.scss";
       </div>
     </section>
 
-    <section class="min-h-screen">
-      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <li class="flex items-center gap-4">
-          <Icon name="simple-icons:astro" class="w-6 h-6" />
-        </li>
+    <section class="min-h-screen md:px-[10rem]">
+      <ul class="grid grid-cols-2 gap-4 sm:grid-cols-2">
+        {skills.map((skill) => <Skill name={skill.name} icon={skill.icon} />)}
       </ul>
     </section>
   </main>
-</Layout>
 
-<style lang="scss">
-  .hero-text {
-    font-size: 6rem;
-  }
-
-  .hero-img {
-    border-radius: 50%;
-  }
-
-  // make the class above responsive
-  @media (max-width: 768px) {
+  <style lang="scss">
     .hero-text {
-      font-size: 4rem;
+      font-size: 6rem;
     }
-  }
-</style>
+
+    .hero-img {
+      border-radius: 50%;
+    }
+
+    // make the class above responsive
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</Layout>
