@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import { Icon } from "astro-icon";
+
 import "../assets/styles.scss";
 ---
 
@@ -19,15 +21,23 @@ import "../assets/styles.scss";
             </h2>
           </div>
 
-          <div class="w-full lg:w-1/2">
+          <div class="w-full lg:w-1/2 place-content-center grid">
             <img
               src="Myself.jpeg"
               alt="Hero Image"
-              class="max-w-full md:max-w-xl rounded-full shadow-2xl"
+              class="max-w-full md:max-w-sm rounded-full shadow-2xl"
             />
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="min-h-screen">
+      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <li class="flex items-center gap-4">
+          <Icon name="simple-icons:astro" class="w-6 h-6" />
+        </li>
+      </ul>
     </section>
   </main>
 </Layout>
