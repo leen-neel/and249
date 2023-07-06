@@ -46,7 +46,20 @@ import socials from "../data/socials.json";
       </div>
     </section>
 
-    <section class="md:px-[10rem] p-5 md:p-0">
+    <div class="md:px-[10rem] p-5 md:p-0 md:mb-10 text-xl">
+      <p>
+        Hey there! I am Anindo Neel Dutta! I hail from 🇮🇳. I am a full-stack web
+        developer who builds projects on the MEVN stack.
+      </p>
+
+      <p class="mt-3">
+        I've been coding since the age of 6. Programming has been an essential
+        part of my life. Learning about new technology and building apps that
+        find solutions to make life easier has always been a passion of mine.
+      </p>
+    </div>
+
+    <section class="md:px-[10rem] p-5 md:p-0 min-h-screen">
       <ul class="grid grid-cols-2 gap-4 sm:grid-cols-2">
         {skills.map((skill) => <Skill name={skill.name} icon={skill.icon} />)}
       </ul>
