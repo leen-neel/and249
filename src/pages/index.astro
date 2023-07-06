@@ -35,11 +35,24 @@ import socials from "../data/socials.json";
             </div>
           </div>
 
-          <div class="w-full lg:w-1/2 place-content-center grid">
+          <div class="w-full lg:w-1/2 place-content-center grid relative">
+            <div
+              class="absolute top-0 left-0 aspect-square w-72 h-72 lg:w-96 lg:h-96 rounded-full bg-gradient-to-tr from-indigo-700 filter blur-xl opacity-80 dark:opacity-50 animate-blob animation-delay-2000"
+            >
+            </div>
+            <div
+              class="absolute right-52 top-52 aspect-square w-72 h-72 lg:w-96 lg:h-96 rounded-full bg-gradient-to-tr from-red-700 filter blur-xl opacity-80 dark:opacity-50 animate-blob animation-delay-2000"
+            >
+            </div>
+            <div
+              class="absolute bottom-0 right-0 aspect-square w-72 h-72 lg:w-96 lg:h-96 rounded-full bg-gradient-to-b from-emerald-500 filter blur-xl opacity-80 dark:opacity-50 animate-blob animation-delay-4000"
+            >
+            </div>
+
             <img
               src="Myself.jpeg"
               alt="Hero Image"
-              class="max-w-xs md:max-w-sm md:rounded-full rounded-lg shadow-2xl md:mt-0 mt-10 border-0 md:border-t-2 md:border-b-2 border-cyan-500"
+              class="z-10 max-w-xs md:max-w-sm md:rounded-full rounded-lg shadow-2xl md:mt-0 mt-10 border-0 md:border-t-2 md:border-b-2 border-cyan-500"
             />
           </div>
         </div>
@@ -65,21 +78,42 @@ import socials from "../data/socials.json";
       </ul>
     </section>
   </main>
-</Layout>
 
-<style lang="scss">
-  .hero-text {
-    font-size: 6rem;
-  }
-
-  .hero-img {
-    border-radius: 50%;
-  }
-
-  // make the class above responsive
-  @media (max-width: 768px) {
+  <style lang="scss">
     .hero-text {
-      font-size: 4rem;
+      font-size: 6rem;
     }
-  }
-</style>
+
+    .hero-img {
+      border-radius: 50%;
+    }
+
+    // make the class above responsive
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 4rem;
+      }
+    }
+
+    // make me an animation where the blob moves around
+    @keyframes blob {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      33% {
+        transform: translate(30px, -50px) scale(1.1);
+      }
+      66% {
+        transform: translate(-20px, 20px) scale(0.9);
+      }
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+    }
+
+    // now implement it in a class
+    .animate-blob {
+      animation: blob 10s infinite;
+    }
+  </style>
+</Layout>
