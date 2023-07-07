@@ -17,6 +17,8 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <div class="relative bg-gradient-to-b to-[#041e1a] from-[#0f2c27]">
+      <slot />
+    </div>
   </body>
 </html>
