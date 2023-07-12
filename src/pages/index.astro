@@ -1,15 +1,14 @@
 ---
 import Layout from "layouts/Layout.astro";
 
-import Skill from "components/Skill.astro";
 import Card from "components/Card.astro";
 
-import skills from "data/skills.json";
 import projects from "data/projects.json";
 
 import "~/assets/styles.scss";
 
 import Hero from "sections/Hero.astro";
+import Skills from "sections/Skills.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -29,15 +28,7 @@ import Hero from "sections/Hero.astro";
       </p>
     </div>
 
-    <section class="md:px-[10rem] p-5 md:p-0">
-      <h2 class="group text-2xl md:text-5xl font-bold mb-4">
-        Technolgies I love
-      </h2>
-
-      <ul class="grid grid-cols-2 gap-4 sm:grid-cols-2">
-        {skills.map((skill) => <Skill name={skill.name} icon={skill.icon} />)}
-      </ul>
-    </section>
+    <Skills />
 
     <section class="md:px-[10rem] p-5">
       <h2 class="group text-2xl md:text-5xl font-bold mb-4">Projects</h2>
