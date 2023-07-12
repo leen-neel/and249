@@ -2,8 +2,10 @@
 import Layout from "layouts/Layout.astro";
 
 import Skill from "components/Skill.astro";
-import skills from "data/skills.json";
 import Card from "components/Card.astro";
+
+import skills from "data/skills.json";
+import projects from "data/projects.json";
 
 import "~/assets/styles.scss";
 
@@ -41,30 +43,18 @@ import Hero from "sections/Hero.astro";
       <h2 class="group text-2xl md:text-5xl font-bold mb-4">Projects</h2>
 
       <div class="grid grid-cols-4">
-        <Card
-          title="Lore"
-          badges={["sex", "sex 2"]}
-          image="https://danidiaztech.com/assets/URL-shortener.8e51537b_11HvW1.avif"
-          description="lorem"
-        />
-        <Card
-          title="Lore"
-          badges={["sex", "sex 2"]}
-          image="https://danidiaztech.com/assets/URL-shortener.8e51537b_11HvW1.avif"
-          description="lorem"
-        />
-        <Card
-          title="Lore"
-          badges={["sex", "sex 2"]}
-          image="https://danidiaztech.com/assets/URL-shortener.8e51537b_11HvW1.avif"
-          description="lorem"
-        />
-        <Card
-          title="Lore"
-          badges={["sex", "sex 2"]}
-          image="https://danidiaztech.com/assets/URL-shortener.8e51537b_11HvW1.avif"
-          description="lorem"
-        />
+        {
+          projects.map((project) => (
+            <Card
+              title={project.title}
+              badges={project.tags}
+              image={project.image}
+              url={project.url}
+              desc={project.description}
+              isClient={project.isClient}
+            />
+          ))
+        }
       </div>
     </section>
   </main>

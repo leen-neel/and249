@@ -1,12 +1,14 @@
 ---
 export interface Props {
   title: string;
-  description: string;
   image: string;
+  url: string;
   badges: string[];
+  desc: string;
+  isClient: boolean;
 }
 
-const { title, description, image, badges } = Astro.props;
+const { isClient, title, image, badges, url, desc } = Astro.props;
 ---
 
 <div class="card w-96 bg-teal-950 shadow-xl">
@@ -14,9 +16,18 @@ const { title, description, image, badges } = Astro.props;
     <img src={image} alt="Shoes" />
   </figure>
   <div class="card-body">
-    <h3 class="card-title">{title}</h3>
+    <h3 class="card-title">
+      <a href={url} class="underline hover:no-underline" target="_blank">
+        {title}
+      </a>
+      <div class="badge badge-success">
+        {isClient ? "Client Project" : "Personal Project"}
+      </div>
+    </h3>
 
-    <p>{description}</p>
+    <p>
+      <Fragment set:html={desc} />
+    </p>
 
     <div class="card-actions justify-start mt-5">
       {badges.map((badge) => <div class="badge badge-outline">{badge}</div>)}
