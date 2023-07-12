@@ -1,14 +1,11 @@
 ---
 import Layout from "layouts/Layout.astro";
 
-import Card from "components/Card.astro";
-
-import projects from "data/projects.json";
-
 import "~/assets/styles.scss";
 
 import Hero from "sections/Hero.astro";
 import Skills from "sections/Skills.astro";
+import Projects from "sections/Projects.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -30,23 +27,6 @@ import Skills from "sections/Skills.astro";
 
     <Skills />
 
-    <section class="md:px-[10rem] p-5">
-      <h2 class="group text-2xl md:text-5xl font-bold mb-4">Projects</h2>
-
-      <div class="grid grid-cols-4">
-        {
-          projects.map((project) => (
-            <Card
-              title={project.title}
-              badges={project.tags}
-              image={project.image}
-              url={project.url}
-              desc={project.description}
-              isClient={project.isClient}
-            />
-          ))
-        }
-      </div>
-    </section>
+    <Projects />
   </main>
 </Layout>
