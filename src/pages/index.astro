@@ -3,6 +3,7 @@ import Layout from "layouts/Layout.astro";
 
 import Skill from "components/Skill.astro";
 import skills from "data/skills.json";
+import Card from "components/Card.astro";
 
 import "~/assets/styles.scss";
 
@@ -26,14 +27,45 @@ import Hero from "sections/Hero.astro";
       </p>
     </div>
 
-    <section class="md:px-[10rem] p-5 md:p-0 min-h-[80vh]">
-      <h3 class="group text-2xl md:text-5xl font-bold mb-4">
+    <section class="md:px-[10rem] p-5 md:p-0">
+      <h2 class="group text-2xl md:text-5xl font-bold mb-4">
         Technolgies I love
-      </h3>
+      </h2>
 
       <ul class="grid grid-cols-2 gap-4 sm:grid-cols-2">
         {skills.map((skill) => <Skill name={skill.name} icon={skill.icon} />)}
       </ul>
+    </section>
+
+    <section class="md:px-[10rem] p-5">
+      <h2 class="group text-2xl md:text-5xl font-bold mb-4">Projects</h2>
+
+      <div class="grid grid-cols-4">
+        <Card
+          title="Lore"
+          badges={["sex", "sex 2"]}
+          image="https://danidiaztech.com/assets/URL-shortener.8e51537b_11HvW1.avif"
+          description="lorem"
+        />
+        <Card
+          title="Lore"
+          badges={["sex", "sex 2"]}
+          image="https://danidiaztech.com/assets/URL-shortener.8e51537b_11HvW1.avif"
+          description="lorem"
+        />
+        <Card
+          title="Lore"
+          badges={["sex", "sex 2"]}
+          image="https://danidiaztech.com/assets/URL-shortener.8e51537b_11HvW1.avif"
+          description="lorem"
+        />
+        <Card
+          title="Lore"
+          badges={["sex", "sex 2"]}
+          image="https://danidiaztech.com/assets/URL-shortener.8e51537b_11HvW1.avif"
+          description="lorem"
+        />
+      </div>
     </section>
   </main>
 </Layout>
