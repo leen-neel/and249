@@ -13,7 +13,7 @@ const { isClient, title, image, badges, url, desc } = Astro.props;
 
 <div class="card w-96 bg-teal-950 shadow-xl">
   <figure>
-    <img src={image} alt="Shoes" />
+    <img src={image} alt={title} />
   </figure>
   <div class="card-body">
     <h3 class="card-title">

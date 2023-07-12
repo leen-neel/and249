@@ -1,23 +1,20 @@
 ---
-export interface Props {
-  title: string;
-}
+import BaseHead from "components/BaseHead.astro";
 
-const { title } = Astro.props;
+import { SITE_TITLE, DESCRIPTION } from "~/config";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <BaseHead
+      title={SITE_TITLE}
+      description={DESCRIPTION}
+      image="https://and249.codes/images/Myself.jpeg"
+    />
   </head>
   <body>
-    <div class="bg-gradient-to-b to-[#041e1a] from-[#0f2c27]">
+    <div class="bg-gradient-to-b to-[#041e1a] from-[#12312c]">
       <slot />
     </div>
   </body>
