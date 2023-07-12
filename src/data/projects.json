@@ -14,5 +14,13 @@
     "description": "Designed and developed Katie Jo Pochat's website using WordPres and Elementor. Included her in every step of the process in buiding the site.",
     "tags": ["WordPress", "Elementor"],
     "isClient": true
+  },
+  {
+    "title": "Classy",
+    "url": "https://classy.and249.codes/",
+    "image": "https://classy-app.netlify.app/Logo.png",
+    "description": "A full-stack application that reminds you of your class schedule. Built using Vue.js, Node.js, Express.js, and MongoDB. I've used GitHub Actions to automatically send emails to users.",
+    "tags": ["Vue + Quasar", "Express", "Node.js", "MongoDB"],
+    "isClient": false
   }
 ]
