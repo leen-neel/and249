@@ -6,5 +6,13 @@
     "description": "<p>Designed and developed lore.com based on Figma design.</p> I built this website using Astro Framework and Tailwind CSS. The posts are fetched from a Ghost CMS backend and site is built automatically when a new post is created.",
     "tags": ["Astro", "Ghost CMS", "Tailwind CSS", "Vercel"],
     "isClient": true
+  },
+  {
+    "title": "Katie Jo Pockat",
+    "url": "https://katiejopockat.com/",
+    "image": "https://and249.codes/images/projects/katiejo.jpg",
+    "description": "Designed and developed Katie Jo Pochat's website using WordPres and Elementor. Included her in every step of the process in buiding the site.",
+    "tags": ["WordPress", "Elementor"],
+    "isClient": true
   }
 ]
