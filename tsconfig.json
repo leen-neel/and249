@@ -7,6 +7,7 @@
       "sections/*": ["sections/*"],
       "layouts/*": ["layouts/*"],
       "data/*": ["data/*"],
+      "styles/*": ["styles/*"],
       "~/*": ["./*"]
     }
   }
