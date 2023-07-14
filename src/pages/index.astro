@@ -4,6 +4,8 @@ import Layout from "layouts/Layout.astro";
 import Hero from "sections/Hero.astro";
 import Skills from "sections/Skills.astro";
 import Projects from "sections/Projects.astro";
+
+import { Icon } from "astro-icon";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -22,7 +24,10 @@ import Projects from "sections/Projects.astro";
         find solutions to make life easier has always been a passion of mine.
       </p>
 
-      <button class="btn btn-primary">Button</button>
+      <a href="#" class="btn btn-primary text-white mt-5">
+        Learn More
+        <Icon name="ant-design:right-outlined" class="w-6 h-6" />
+      </a>
     </div>
 
     <Skills />
