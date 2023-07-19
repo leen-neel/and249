@@ -24,9 +24,15 @@ import { Icon } from "astro-icon";
         find solutions to make life easier has always been a passion of mine.
       </p>
 
-      <a href="/about" class="btn btn-primary text-white mt-5">
-        Learn More
-        <Icon name="ant-design:right-outlined" class="w-6 h-6" />
+      <a href="/about" class="mt-5 inline-flex items-center font-bold group">
+        <span
+          class="text-white flex justify-between underline-offset-4 group-hover:underline group-hover:text-primary group-hover:brightness-125"
+          >Learn More</span
+        >
+        <Icon
+          name="mdi:arrow-right-thin"
+          class="inline ml-2 w-8 h-8 transition-transform duration-300 group-hover:translate-x-2 group-hover:brightness-125 group-hover:text-primary"
+        />
       </a>
     </div>
 
