@@ -3,92 +3,88 @@ import Layout from "layouts/Layout.astro";
 ---
 
 <Layout title="About">
-  <section class="hero flex items-center md:min-h-screen min-h-[80vh]">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap items-center">
-        <div class="w-full ubuntu lg:w-1/2 px-4 text-xl md:text-2xl">
-          <p class="mb-2">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Repudiandae accusantium nulla eum doloremque dolorem. Voluptates
-            explicabo, ea tempora perferendis unde labore, pariatur ad quod
-            repudiandae ullam iste fuga soluta dolorum!
-          </p>
+  <main class="min-h-screen">
+    <section class="hero flex items-center md:min-h-screen min-h-[80vh]">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap items-center">
+          <div class="w-full ubuntu lg:w-1/2 px-4 text-xl md:text-2xl">
+            <p class="mb-2">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Repudiandae accusantium nulla eum doloremque dolorem. Voluptates
+              explicabo, ea tempora perferendis unde labore, pariatur ad quod
+              repudiandae ullam iste fuga soluta dolorum!
+            </p>
+            <p class="mt-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Exercitationem nobis officia eius vitae tempore in optio quibusdam
+              consequuntur eos facere itaque deserunt, porro odio iusto? Est ea
+              vero quae saepe?
+            </p>
+          </div>
+          <div class="w-full lg:w-1/2 place-content-center grid">
+            <img
+              src="Myself.jpeg"
+              alt="An image of Anindo Neel Dutta"
+              class="max-w-xs md:max-w-sm rounded-lg shadow-2xl md:mt-0 mt-10 border-0"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <p class="mt-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem nobis officia eius vitae tempore in optio quibusdam
-            consequuntur eos facere itaque deserunt, porro odio iusto? Est ea
-            vero quae saepe?
+    <section class="md:px-[10rem] p-5 md:p-0 md:mb-10">
+      <h2 class="group text-3xl md:text-5xl font-bold mb-4">FAQs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-16">
+        <div>
+          <h3
+            class="text-xl first-letter:md:text-2xl font-extrabold mb-2 text-primary"
+          >
+            What programming languages do you know?
+          </h3>
+          <p>
+            I started playing around with the basics of programming since I was
+            6. The first lines of code I wrote were in C. I know a bit of Java
+            and Python. However, my main focus is on web development. I've
+            taught myself HTML, CSS and WordPRess back when I was 11. I've
+            started learning JS in 2021 and I'm currently learning DevOps.
           </p>
         </div>
-
-        <div class="w-full lg:w-1/2 place-content-center grid">
-          <img
-            src="Myself.jpeg"
-            alt="An image of Anindo Neel Dutta"
-            class="max-w-xs md:max-w-sm rounded-lg shadow-2xl md:mt-0 mt-10 border-0"
-          />
+        <div>
+          <h3
+            class="text-xl first-letter:md:text-2xl font-extrabold mb-2 text-primary"
+          >
+            What's your educational background?
+          </h3>
+          <p>
+            I've just graduated high school in April, 2023. I'm currently
+            perusing a bachelors degree in Computer Applications.
+          </p>
+        </div>
+        <div>
+          <h3
+            class="text-xl first-letter:md:text-2xl font-extrabold mb-2 text-primary"
+          >
+            What are your main interesets in engineering?
+          </h3>
+          <p>
+            I've always been interested in the field of web development.
+            Currently, I'm interested in learning about DevOps, Cloud Computing
+            and AI.
+          </p>
+        </div>
+        <div>
+          <h3
+            class="text-xl first-letter:md:text-2xl font-extrabold mb-2 text-primary"
+          >
+            What are your hobbies?
+          </h3>
+          <p>
+            Apart from programming, I enjoy working out, playing video games,
+            listening to music and watching movies. I also spend a good amount
+            of my free time learning about new things that interest me.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="md:px-[10rem] p-5 md:p-0 md:mb-10">
-    <h2 class="group text-3xl md:text-5xl font-bold mb-4">FAQs</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-16">
-      <div>
-        <h3
-          class="text-xl first-letter:md:text-2xl font-extrabold mb-2 text-primary"
-        >
-          What programming languages do you know?
-        </h3>
-        <p>
-          I started playing around with the basics of programming since I was 6.
-          The first lines of code I wrote were in C. I know a bit of Java and
-          Python. However, my main focus is on web development. I've taught
-          myself HTML, CSS and WordPRess back when I was 11. I've started
-          learning JS in 2021 and I'm currently learning DevOps.
-        </p>
-      </div>
-
-      <div>
-        <h3
-          class="text-xl first-letter:md:text-2xl font-extrabold mb-2 text-primary"
-        >
-          What's your educational background?
-        </h3>
-        <p>
-          I've just graduated high school in April, 2023. I'm currently perusing
-          a bachelors degree in Computer Applications.
-        </p>
-      </div>
-
-      <div>
-        <h3
-          class="text-xl first-letter:md:text-2xl font-extrabold mb-2 text-primary"
-        >
-          What are your main interesets in engineering?
-        </h3>
-        <p>
-          I've always been interested in the field of web development.
-          Currently, I'm interested in learning about DevOps, Cloud Computing
-          and AI.
-        </p>
-      </div>
-
-      <div>
-        <h3
-          class="text-xl first-letter:md:text-2xl font-extrabold mb-2 text-primary"
-        >
-          What are your hobbies?
-        </h3>
-        <p>
-          Apart from programming, I enjoy working out, playing video games,
-          listening to music and watching movies. I also spend a good amount of
-          my free time learning about new things that interest me.
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </Layout>
