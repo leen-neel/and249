@@ -4,6 +4,7 @@ import Layout from "layouts/Layout.astro";
 import Hero from "sections/Hero.astro";
 import Skills from "sections/Skills.astro";
 import Projects from "sections/Projects.astro";
+import Jobs from "sections/JobHistory.astro";
 
 import { Icon } from "astro-icon";
 ---
@@ -14,8 +15,9 @@ import { Icon } from "astro-icon";
 
     <div class="md:px-[10rem] p-5 md:p-0 md:mb-10 text-xl z-30">
       <p>
-        Hey there! I am Anindo Neel Dutta! I hail from 🇮🇳. I am a full-stack web
-        developer who builds projects on the MEVN stack.
+        Hey there! I am <span class="ubuntu font-bold">Anindo Neel Dutta!</span>
+        I hail from 🇮🇳. I am a full-stack web developer who builds projects on the
+        MEVN stack.
       </p>
 
       <p class="mt-3">
@@ -36,6 +38,7 @@ import { Icon } from "astro-icon";
       </a>
     </div>
 
+    <Jobs />
     <Skills />
 
     <Projects />
