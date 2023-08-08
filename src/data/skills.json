@@ -1,7 +1,7 @@
 [
   {
     "name": "Vue",
-    "icon": "vscode-icons:file-type-vue"
+    "icon": "vue"
   },
   {
     "name": "Quasar",
@@ -9,7 +9,7 @@
   },
   {
     "name": "Astro",
-    "icon": "vscode-icons:file-type-astro"
+    "icon": "astro"
   },
   {
     "name": "TypeScript",
