@@ -1,0 +1,27 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+import BaseHead from "components/BaseHead.astro";
+
+import { SITE_TITLE, SITE_DESC, SITE_IMG } from "~/config";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`Error 404 - ${SITE_TITLE}`}
+      description="Oops, you did an oopsie. Why don't u kys?"
+      image={SITE_IMG}
+    />
+  </head>
+
+  <body class="grid place-content-center min-h-screen">
+    <div class="text-3xl">Oops! Page not found</div>
+    <a class="btn btn-primary font-extrabold mt-5" href="/">Go home</a>
+  </body>
+</html>
