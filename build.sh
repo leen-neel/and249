@@ -10,6 +10,6 @@ npm run build
 cd ./dist
 zip -r ../site.zip ./*
 
-# figlet "Site built!"
-# sleep 3
-# clear
+figlet "Site built!"
+sleep 3
+clear
