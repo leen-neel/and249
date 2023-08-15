@@ -25,7 +25,8 @@ const { image, title, description } = Astro.props;
       image={image ? image : SITE_IMG}
     />
   </head>
-  <body class="bg-gradient-to-br to-[#041e1a] from-[#12312c]">
+
+  <body class="bg-gradient-to-br to-[#041e1a] from-[#12312c] overflow-x-hidden">
     <header aria-labelledby="navbar-heading">
       <!-- Navbar starts -->
       <div class="navbar bg-teal-800/50 backdrop-blur-lg">
@@ -41,11 +42,14 @@ const { image, title, description } = Astro.props;
     </header>
     <!-- Navbar ends -->
 
-    <main class="">
+    <main>
       <slot />
     </main>
 
-    <footer class="mt-10 bg-teal-800/50 footer p-10 text-neutral-content">
+    <footer
+      aria-labelledby="footer"
+      class="mt-10 bg-teal-800/50 footer p-10 text-neutral-content"
+    >
       <div>
         <Logo />
         <p>Made with 💙 by <span class="font-bold">Anindo Neel Dutta</span></p>

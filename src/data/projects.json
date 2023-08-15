@@ -22,5 +22,13 @@
     "description": "A full-stack application that reminds you of your class schedule. Built using Vue.js, Node.js, Express.js, and MongoDB. I've used GitHub Actions to automatically send emails to users.",
     "tags": ["Vue + Quasar", "Express", "Node.js", "MongoDB"],
     "isClient": false
+  },
+  {
+    "title": "PostCards",
+    "url": "https://postcardsapp.netlify.app/",
+    "image": "https://and249.codes/images/projects/postcards.png",
+    "description": "A simple social media site built with a FireBase backend that's made for users to share their quick thoughts in \"post cards\" that other people can see.",
+    "isClient": false,
+    "tags": ["Vue + Quasar", "Firebase"]
   }
 ]
