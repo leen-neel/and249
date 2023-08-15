@@ -64,7 +64,11 @@ const { image, title, description } = Astro.props;
           <ul class="flex gap-3 text-white">
             {
               socials.map((social) => (
-                <Socials link={social.link} icon={social.icon} />
+                <Socials
+                  link={social.link}
+                  icon={social.icon}
+                  name={social.name}
+                />
               ))
             }
           </ul>

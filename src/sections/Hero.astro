@@ -21,7 +21,11 @@ import Socials from "components/Socials.astro";
           <ul class="flex gap-3">
             {
               socials.map((social) => (
-                <Socials link={social.link} icon={social.icon} />
+                <Socials
+                  link={social.link}
+                  icon={social.icon}
+                  name={social.name}
+                />
               ))
             }
           </ul>
