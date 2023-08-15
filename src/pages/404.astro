@@ -1,10 +1,4 @@
 ---
-export interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
-}
-
 import BaseHead from "components/BaseHead.astro";
 
 import { SITE_TITLE, SITE_DESC, SITE_IMG } from "~/config";
@@ -15,7 +9,7 @@ import { SITE_TITLE, SITE_DESC, SITE_IMG } from "~/config";
   <head>
     <BaseHead
       title={`Error 404 - ${SITE_TITLE}`}
-      description="Oops, you did an oopsie. Why don't u kys?"
+      description={SITE_DESC}
       image={SITE_IMG}
     />
   </head>
