@@ -10,6 +10,7 @@ import socials from "data/socials.json";
 import Socials from "components/Socials.astro";
 import BaseHead from "components/BaseHead.astro";
 import Logo from "components/Logo.astro";
+import Contact from "sections/Contact.astro";
 
 import { SITE_TITLE, SITE_DESC, SITE_IMG } from "~/config";
 
@@ -44,6 +45,7 @@ const { image, title, description } = Astro.props;
 
     <main>
       <slot />
+      <Contact />
     </main>
 
     <footer
@@ -59,7 +61,7 @@ const { image, title, description } = Astro.props;
       <div>
         <span class="text-white font-bold">Socials</span>
         <div>
-          <ul class="flex gap-3">
+          <ul class="flex gap-3 text-white">
             {
               socials.map((social) => (
                 <Socials link={social.link} icon={social.icon} />
