@@ -22,9 +22,9 @@ const { image, title, description } = Astro.props;
     />
   </head>
   <body class="bg-gradient-to-br to-[#041e1a] from-[#12312c]">
-    <header aria-labelledby="footer-heading">
+    <header aria-labelledby="navbar-heading">
       <!-- Navbar starts -->
-      <div class="navbar bg-teal-800/50 z-50 backdrop-blur-lg">
+      <div class="navbar bg-teal-800/50 backdrop-blur-lg">
         <div class='navbar-start"'>
           <a href="/">
             <svg
@@ -52,6 +52,8 @@ const { image, title, description } = Astro.props;
     </header>
     <!-- Navbar ends -->
 
-    <slot />
+    <main class="">
+      <slot />
+    </main>
   </body>
 </html>
