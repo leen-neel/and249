@@ -13,11 +13,11 @@ import Logo from "components/Logo.astro";
 import Contact from "sections/Contact.astro";
 
 import { SITE_TITLE, SITE_DESC, SITE_IMG } from "~/config";
-
+import { ViewTransitions } from "astro:transitions";
 const { image, title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead
@@ -25,6 +25,7 @@ const { image, title, description } = Astro.props;
       description={description ? description : SITE_DESC}
       image={image ? image : SITE_IMG}
     />
+    <ViewTransitions transition:animate="slide" />
   </head>
 
   <body class="bg-gradient-to-br to-[#041e1a] from-[#12312c] overflow-x-hidden">
