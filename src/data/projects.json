@@ -1,5 +1,6 @@
 [
   {
+    "id": "lore",
     "title": "Lore.com",
     "url": "https://lore.com",
     "image": "/projects/lore.jpg",
@@ -8,6 +9,7 @@
     "isClient": true
   },
   {
+    "id": "katie",
     "title": "Katie Jo's Site",
     "url": "https://katiejopockat.com/",
     "image": "/projects/katiejo.jpg",
@@ -16,6 +18,7 @@
     "isClient": true
   },
   {
+    "id": "classy",
     "title": "Classy",
     "url": "https://classy.and249.codes/",
     "image": "/projects/classy.png",
@@ -24,6 +27,7 @@
     "isClient": false
   },
   {
+    "id": "postcards",
     "title": "PostCards",
     "url": "https://postcardsapp.netlify.app/",
     "image": "/projects/postcards.png",
