@@ -1,5 +1,5 @@
 ---
-import socials from "data/socials.json";
+import socials from "data/socials";
 import Socials from "components/Socials.astro";
 ---
 
@@ -17,8 +17,8 @@ import Socials from "components/Socials.astro";
           </span>
         </h2>
 
-        <div>
-          <ul class="flex gap-3">
+        <div class="grid">
+          <ul class="flex gap-1">
             {
               socials.map((social) => (
                 <Socials
@@ -29,6 +29,10 @@ import Socials from "components/Socials.astro";
               ))
             }
           </ul>
+
+          <!-- <div class="mt-5 gap-2 grid grid-cols-4">
+            <button class="btn btn-primary col-span-2">Hire me</button>
+          </div> -->
         </div>
       </div>
 

@@ -5,7 +5,7 @@ export interface Props {
   image?: string;
 }
 
-import socials from "data/socials.json";
+import socials from "data/socials";
 
 import Socials from "components/Socials.astro";
 import BaseHead from "components/BaseHead.astro";
@@ -29,6 +29,16 @@ const { image, title, description } = Astro.props;
   </head>
 
   <body class="bg-gradient-to-br to-[#041e1a] from-[#12312c] overflow-x-hidden">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5BS64GBM"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
+
     <header aria-labelledby="navbar-heading">
       <!-- Navbar starts -->
       <div class="navbar bg-teal-800/50 backdrop-blur-lg">
