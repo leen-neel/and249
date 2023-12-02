@@ -8,11 +8,9 @@ export async function sendEmail() {
   const data = await resend.emails.send({
     from: "Neel <onboarding@resend.dev>",
     to: "and24903@gmail.com",
-    subject: "Hello from Resend!",
+    subject: "New Submission in Contact Form",
     text: "Hello World!",
   });
 
-  console.log(data);
-
-  return data;
+  return "ok";
 }

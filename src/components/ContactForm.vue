@@ -1,12 +1,16 @@
 <script lang="ts" setup>
-  // import { sendEmail } from "pages/api/email";
   import { reactive } from "vue";
+  // import { sendEmail } from "~/pages/api/email";
 
   const form = reactive({
     name: "",
     email: "",
     message: "",
   });
+
+  const submitForm = () => {
+    console.log(form.email.valueOf());
+  };
 </script>
 
 <template>
@@ -44,7 +48,8 @@
       ></textarea>
     </label>
     <button
-      class="btn bg-transparent border-white text-white border-1 hover:bg-emerald-500 w-52 mt-4"
+      class="btn bg-transparent border-white text-white border-1 hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 w-52 mt-4"
+      @click="submitForm()"
     >
       Hire me
     </button>
