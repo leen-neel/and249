@@ -8,5 +8,4 @@ import vue from "@astrojs/vue";
 export default defineConfig({
   integrations: [tailwind(), sitemap(), vue()],
   site: "https://and249.codes/",
-  output: "server",
 });
