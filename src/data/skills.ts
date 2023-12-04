@@ -24,5 +24,4 @@ const skills = [
     icon: "logos:nodejs-icon",
   },
 ];
-
 export default skills;
