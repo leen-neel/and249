@@ -14,15 +14,14 @@
 
   const apiData = ref("");
 
-  const getData = async () => {
+  const sendMessage = async () => {
     const response = await fetch("/api/email", {
-      method: "GET",
+      method: "POST",
+      body: JSON.stringify(form),
     });
     apiData.value = await response.json();
     console.log(await response.json());
   };
-
-  getData();
 </script>
 
 <template>
@@ -36,6 +35,7 @@
         type="text"
         v-model="form.name"
         class="input input-bordered bg-teal-800 focus:bg-teal-700 w-full max-w-xs"
+        name="name"
       />
     </label>
 
@@ -47,6 +47,7 @@
         type="email"
         v-model="form.email"
         class="input bg-teal-800 focus:bg-teal-700 w-full max-w-xs"
+        name="email"
       />
     </label>
     <label class="form-control">
@@ -56,11 +57,12 @@
       <textarea
         v-model="form.message"
         class="textarea textarea-bordered bg-teal-800 focus:bg-teal-700 h-24"
+        name="email"
       ></textarea>
     </label>
     <button
       class="btn bg-transparent border-white text-white border-1 hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 w-52 mt-4"
-      @click="submitForm()"
+      @click="sendMessage()"
     >
       Hire me
     </button>
