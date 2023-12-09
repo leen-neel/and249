@@ -1,12 +1,20 @@
+---
+import ContactForm from "components/ContactForm.vue";
+---
+
 <section class="md:px-[10rem] px-3 mt-10">
   <div class="card card-body bg-teal-900">
     <h2 class="group text-3xl md:text-5xl font-bold mb-4">Contact</h2>
-    <p>
+    <!-- <p>
       Think I'm a good fit for your company? <a
         href="https://tally.so/r/mBdZle"
         class="link decoration-teal-400 hover:decoration-teal-300 transition-all decoration-4"
         target="_blank">Message me</a
       >
-    </p>
+    </p> -->
+
+    <!-- <ContactForm client:load /> -->
+
+    <ContactForm client:only="vue" />
   </div>
 </section>

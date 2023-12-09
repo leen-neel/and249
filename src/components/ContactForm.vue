@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { reactive } from "vue";
+  import { reactive, ref } from "vue";
   // import { sendEmail } from "~/pages/api/email";
 
   const form = reactive({
@@ -11,10 +11,23 @@
   const submitForm = () => {
     console.log(form.email.valueOf());
   };
+
+  const apiData = ref("");
+
+  const getData = async () => {
+    const response = await fetch("/api/email", {
+      method: "GET",
+    });
+    apiData.value = await response.json();
+    console.log(await response.json());
+  };
+
+  getData();
 </script>
 
 <template>
   <div class="">
+    {{ apiData }}
     <label class="form-control w-full max-w-xs">
       <div class="label">
         <span class="label-text">Name*</span>
@@ -25,8 +38,6 @@
         class="input input-bordered bg-teal-800 focus:bg-teal-700 w-full max-w-xs"
       />
     </label>
-
-    {{ form }}
 
     <label class="form-control w-full max-w-xs">
       <div class="label">
