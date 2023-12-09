@@ -8,25 +8,16 @@
     message: "",
   });
 
-  const submitForm = () => {
-    console.log(form.email.valueOf());
-  };
-
-  const apiData = ref("");
-
   const sendMessage = async () => {
     const response = await fetch("/api/email", {
       method: "POST",
       body: JSON.stringify(form),
     });
-    apiData.value = await response.json();
-    console.log(await response.json());
   };
 </script>
 
 <template>
   <div class="">
-    {{ apiData }}
     <label class="form-control w-full max-w-xs">
       <div class="label">
         <span class="label-text">Name*</span>
