@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://and249.codes/sitemap-index.xml
