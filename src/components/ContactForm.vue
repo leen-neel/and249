@@ -42,10 +42,14 @@
       isValid.value = false;
     }
   });
+
+  const testEmail = async () => {
+    await fetch("/api/emailTest");
+  };
 </script>
 
 <template>
-  <div class="">
+  <form class="">
     <label class="form-control w-full max-w-xs">
       <div class="label">
         <span class="label-text">Name*</span>
@@ -100,5 +104,7 @@
 
       Hire me
     </button>
-  </div>
+  </form>
+
+  <button @click="testEmail">test email</button>
 </template>
