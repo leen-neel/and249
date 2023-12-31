@@ -102,9 +102,7 @@
         />
       </svg>
 
-      Hire me
+      Contact me
     </button>
   </form>
-
-  <button @click="testEmail">test email</button>
 </template>
