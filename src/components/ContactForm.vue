@@ -102,7 +102,7 @@
         />
       </svg>
 
-      Contact me
+      Send Message
     </button>
   </form>
 </template>
