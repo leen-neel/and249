@@ -1,22 +1,22 @@
 const socials = [
   {
     link: "https://github.com/leen-neel",
-    icon: "tabler:brand-github",
+    icon: "mdi:github",
     name: "GitHub",
   },
   {
     link: "https://t.me/and_249/",
-    icon: "tabler:brand-telegram",
+    icon: "ic:baseline-telegram",
     name: "Telegram",
   },
   {
     link: "https://www.instagram.com/and_249/",
-    icon: "tabler:brand-instagram",
+    icon: "mdi:instagram",
     name: "Instagram",
   },
   {
     link: "https://www.linkedin.com/in/and249/",
-    icon: "tabler:brand-linkedin",
+    icon: "mdi:linkedin",
     name: "LinkedIn",
   },
 ];
