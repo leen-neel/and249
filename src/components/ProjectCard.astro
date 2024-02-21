@@ -1,4 +1,6 @@
 ---
+import { Image, Picture } from "astro:assets";
+
 export interface Props {
   title: string;
   image: string;
@@ -13,7 +15,16 @@ const { isClient, title, image, badges, url, desc } = Astro.props;
 
 <div class="card bg-teal-900 shadow-xl">
   <figure>
-    <img src={image} alt={title} />
+    <!-- <img src={image} alt={title} /> -->
+
+    <!-- <Image src={image} alt={title} width={700} height={700} format="webp" /> -->
+    <Picture
+      src={image}
+      alt={title}
+      formats={["avif", "webp"]}
+      width={700}
+      height={700}
+    />
   </figure>
   <div class="card-body">
     <h3 class="card-title">
@@ -21,7 +32,7 @@ const { isClient, title, image, badges, url, desc } = Astro.props;
         {title}
       </a>
       <div class="badge badge-success">
-        {isClient ? "Client Project" : "Personal Project"}
+        {isClient ? "Client" : "Personal"}
       </div>
     </h3>
 

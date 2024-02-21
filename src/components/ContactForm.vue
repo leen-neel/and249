@@ -21,6 +21,10 @@
     });
     isLoading.value = false;
     isValid.value = true;
+
+    form.name = "";
+    form.email = "";
+    form.message = "";
   };
 
   const schema = object({
