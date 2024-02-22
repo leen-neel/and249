@@ -61,7 +61,7 @@ const { image, title, description } = Astro.props;
 
     <footer
       aria-labelledby="footer"
-      class="mt-10 bg-teal-800/50 footer p-10 text-neutral-content"
+      class="mt-10 footer md:px-[10rem] p-10 place-items-stretch text-neutral-content"
     >
       <div>
         <Logo />
@@ -70,19 +70,21 @@ const { image, title, description } = Astro.props;
         </p>
       </div>
       <div>
-        <span class="text-white font-bold">Socials</span>
-        <div>
-          <ul class="flex gap-3 text-white text-3xl">
-            {
-              socials.map((social) => (
-                <Socials
-                  link={social.link}
-                  icon={social.icon}
-                  name={social.name}
-                />
-              ))
-            }
-          </ul>
+        <div class="flex justify-end md:w-full">
+          <div class="md:text-right">
+            <span class="text-white font-bold">Socials</span>
+            <ul class="flex gap-3 text-white text-3xl">
+              {
+                socials.map((social) => (
+                  <Socials
+                    link={social.link}
+                    icon={social.icon}
+                    name={social.name}
+                  />
+                ))
+              }
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
