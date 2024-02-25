@@ -9,6 +9,10 @@ body {
   font-family: "Ubuntu", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 // Scroll bar
 ::-webkit-scrollbar {
   width: 10px;
