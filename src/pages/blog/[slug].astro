@@ -1,3 +1,20 @@
 ---
-import {} from "astro:content";
+import Layout from "layouts/Layout.astro";
+
+import { getEntry } from "astro:content";
+const { slug } = Astro.params;
+
+const entry = await getEntry("blog", slug!);
+
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const { Content, headings } = await entry.render();
 ---
+
+<Layout>
+  <article class="md:px-[10rem] px-3">
+    <Content />
+  </article>
+</Layout>
