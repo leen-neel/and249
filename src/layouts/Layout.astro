@@ -5,12 +5,12 @@ export interface Props {
   image?: string;
 }
 
-import socials from "../data/socials";
+import socials from "~/data/socials";
 
-import Socials from "../components/Socials.astro";
-import BaseHead from "../components/BaseHead.astro";
-import Logo from "../components/Logo.astro";
-import Contact from "../sections/Contact.astro";
+import Socials from "~/components/Socials.astro";
+import BaseHead from "~/components/BaseHead.astro";
+import Logo from "~/components/Logo.astro";
+import Contact from "~/sections/Contact.astro";
 
 import { SITE_TITLE, SITE_DESC, SITE_IMG } from "../config";
 import { ViewTransitions } from "astro:transitions";
@@ -48,6 +48,17 @@ const { image, title, description } = Astro.props;
             <p class="text-xl ubuntu capitalize btn btn-ghost font-bold">
               Anindo Neel Dutta
             </p>
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <a href="/blog" class="mr-10 btn btn-ghost normal-case">
+            <div class="indicator relative">
+              <span
+                class="w-[10px] h-[10px] absolute top-[-5px] right-[-10px] bg-primary animate-ping"
+                style="border-radius: 50%;"></span>
+              Blog
+            </div>
           </a>
         </div>
       </div>

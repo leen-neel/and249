@@ -1,26 +1,15 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "/home/and249/My Sites/and249-next/src",
+    "baseUrl": ".",
+    "strictNullChecks": true,
     "paths": {
-      "components/*": [
-        "components/*"
-      ],
-      "sections/*": [
-        "sections/*"
-      ],
-      "layouts/*": [
-        "layouts/*"
-      ],
-      "data/*": [
-        "data/*"
-      ],
-      "styles/*": [
-        "styles/*"
-      ],
-      "~/*": [
-        "./*"
-      ]
+      "components/*": ["./src/components/*"],
+      "sections/*": ["./src/sections/*"],
+      "layouts/*": ["./src/layouts/*"],
+      "data/*": ["./src/data/*"],
+      "styles/*": ["./src/styles/*"],
+      "~/*": ["./src/*"]
     },
     "jsx": "preserve"
   }

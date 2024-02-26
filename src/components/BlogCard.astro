@@ -1,0 +1,85 @@
+---
+import { Picture } from "astro:assets";
+export interface Props {
+  post: {
+    slug: string;
+    data: {
+      title: string;
+      heroImage: string;
+      pubDate: string;
+      description: string;
+    };
+  };
+}
+
+const { post } = Astro.props;
+---
+
+<div class="post-card">
+  <a href={`/blog/${post.slug}`}>
+    <figure>
+      <Picture
+        class="thumbnail"
+        src={`/blog/${post.data.heroImage}`}
+        alt={post.data.title}
+        transition:name={post.slug}
+        formats={["avif", "webp"]}
+        width={700}
+        height={700}
+      />
+    </figure>
+  </a>
+  <div class="info">
+    <a href={`/blog/${post.slug}`}>
+      <h3>{post.data.title}</h3>
+    </a>
+    📅
+    <strong>
+      <time datetime={post.data.pubDate}>
+        {
+          new Date(post.data.pubDate).toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </time>
+    </strong>
+    <hr />
+    <p>{post.data.description}</p>
+  </div>
+</div>
+
+<style lang="scss">
+  figure {
+    padding: 10px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5%);
+    }
+  }
+
+  .post-card {
+    background-color: #296e63;
+    border-radius: 16px !important;
+    transition: 500ms;
+  }
+
+  .info {
+    padding: 10px;
+
+    a {
+      @apply underline hover:no-underline;
+    }
+
+    h3 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 0.9em;
+    }
+  }
+</style>
