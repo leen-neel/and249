@@ -69,8 +69,13 @@ const { post } = Astro.props;
   .info {
     padding: 10px;
 
+    a {
+      @apply underline hover:no-underline;
+    }
+
     h3 {
-      font-size: 1.5em;
+      font-size: 1.3em;
+      margin-bottom: 15px;
     }
 
     p {

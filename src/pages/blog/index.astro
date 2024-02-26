@@ -2,7 +2,9 @@
 import Layout from "~/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-export const posts = await getCollection("blog");
+export let posts = await getCollection("blog");
+
+posts = posts.filter((post) => !post.data.draft);
 
 import BlogCard from "~/components/BlogCard.astro";
 ---
@@ -11,7 +13,7 @@ import BlogCard from "~/components/BlogCard.astro";
   <section class="md:px-[10rem] px-3 mt-12">
     <h2 class="group text-3xl md:text-5xl font-bold mb-4">Blog</h2>
 
-    <div class="grid md:grid-cols-4">
+    <div class="grid md:grid-cols-4 gap-3">
       {posts.map((post) => <BlogCard post={post} />)}
     </div>
   </section>
