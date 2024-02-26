@@ -10,11 +10,15 @@ if (entry === undefined) {
   return Astro.redirect("/404");
 }
 
-const { Content, headings } = await entry.render();
+const { Content } = await entry.render();
+const { data } = entry;
+
+import "~/styles/blog.scss";
 ---
 
-<Layout>
-  <article class="md:px-[10rem] px-3">
+<Layout title={data.title}>
+  <article class="md:px-[10rem] px-10">
+    <h1 class="title">{data.title}</h1>
     <Content />
   </article>
 </Layout>

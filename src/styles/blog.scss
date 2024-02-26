@@ -1,0 +1,125 @@
+$primary: #26a69a;
+$border: #1e877d;
+
+article {
+  .title {
+    font-size: 3em;
+  }
+
+  .date {
+    font-size: 1.5em;
+  }
+
+  hr {
+    height: 5px;
+    background-color: $primary;
+    border: none;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  p {
+    margin: 15px 0;
+    font-size: 1.1em;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2.8em;
+  }
+
+  h3 {
+    font-size: 2.5em;
+  }
+
+  h4 {
+    font-size: 2.2em;
+  }
+
+  h5 {
+    font-size: 2em;
+  }
+
+  h6 {
+    font-size: 1.8em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 5px 0;
+  }
+
+  ul {
+    li::marker {
+      content: "🚀 ";
+    }
+
+    ul {
+      margin-left: 12px;
+
+      li::marker {
+        content: "🔥 ";
+      }
+    }
+  }
+
+  pre {
+    padding: 1rem;
+  }
+  pre > code {
+    all: unset;
+  }
+
+  img {
+    border-radius: 16px;
+  }
+
+  blockquote {
+    border: $border 2px solid;
+    padding: 1em;
+    margin: 5px 0;
+    p {
+      margin: 0;
+    }
+  }
+
+  mark {
+    background-color: $primary;
+    color: white;
+  }
+
+  table,
+  th,
+  tbody,
+  td {
+    border: $border 2px solid;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: $primary;
+    color: white;
+    font-weight: bold;
+  }
+
+  .astro-code {
+    margin: 10px 0;
+    border-radius: 16px;
+  }
+}
