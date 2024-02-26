@@ -17,7 +17,31 @@ import "~/styles/blog.scss";
 ---
 
 <Layout title={data.title}>
-  <article class="md:px-[10rem] px-10">
+  <article class="p-3 md:px-[10rem] px-10">
+    <figure>
+      <img
+        class="thumbnail"
+        src={data.heroImage}
+        alt={data.title}
+        transition:name={slug}
+      />
+    </figure>
+
+    <div class="mt-10 md:text-3xl">
+      📅
+      <strong>
+        <time datetime={data.pubDate}>
+          {
+            new Date(data.pubDate).toLocaleDateString("en-us", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </time>
+      </strong>
+    </div>
+
     <h1 class="title">{data.title}</h1>
     <Content />
   </article>
