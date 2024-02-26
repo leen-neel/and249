@@ -36,7 +36,7 @@ import "~/styles/blog.scss";
       <strong>
         <time datetime={data.pubDate}>
           {
-            new Date(data.pubDate).toLocaleDateString("en-us", {
+            new Date(data.pubDate).toLocaleDateString("en-in", {
               year: "numeric",
               month: "long",
               day: "numeric",
@@ -47,6 +47,9 @@ import "~/styles/blog.scss";
     </div>
 
     <h1 class="title">{data.title}</h1>
+
+    <hr class="my-10" />
+
     <Content />
   </article>
 </Layout>

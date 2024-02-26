@@ -24,27 +24,33 @@ article {
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 2.7em;
+    font-weight: 600;
   }
 
   h2 {
-    font-size: 2.8em;
+    font-size: 2em;
+    font-weight: 600;
   }
 
   h3 {
-    font-size: 2.5em;
+    font-size: 1.8em;
+    font-weight: 600;
   }
 
   h4 {
-    font-size: 2.2em;
+    font-size: 1.5em;
+    font-weight: 600;
   }
 
   h5 {
-    font-size: 2em;
+    font-size: 1.4em;
+    font-weight: 600;
   }
 
   h6 {
-    font-size: 1.8em;
+    font-size: 1.3em;
+    font-weight: 600;
   }
 
   h1,
@@ -116,6 +122,10 @@ article {
     background-color: $primary;
     color: white;
     font-weight: bold;
+  }
+
+  a {
+    @apply underline hover:no-underline;
   }
 
   .astro-code {
