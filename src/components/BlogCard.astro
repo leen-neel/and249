@@ -1,4 +1,5 @@
 ---
+import { Picture } from "astro:assets";
 export interface Props {
   post: {
     slug: string;
@@ -17,11 +18,14 @@ const { post } = Astro.props;
 <div class="post-card">
   <a href={`/blog/${post.slug}`}>
     <figure>
-      <img
+      <Picture
         class="thumbnail"
         src={`/blog/${post.data.heroImage}`}
         alt={post.data.title}
         transition:name={post.slug}
+        formats={["avif", "webp"]}
+        width={700}
+        height={700}
       />
     </figure>
   </a>
