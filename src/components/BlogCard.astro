@@ -1,0 +1,81 @@
+---
+export interface Props {
+  post: {
+    slug: string;
+    data: {
+      title: string;
+      heroImage: string;
+      pubDate: string;
+      description: string;
+    };
+  };
+}
+
+const { post } = Astro.props;
+---
+
+<div class="post-card">
+  <a href={`/blog/${post.slug}`}>
+    <figure>
+      <img
+        class="thumbnail"
+        src={post.data.heroImage}
+        alt={post.data.title}
+        transition:name={post.slug}
+      />
+    </figure>
+  </a>
+  <div class="info">
+    <a href={`/blog/${post.slug}`}>
+      <h3>{post.data.title}</h3>
+    </a>
+    📅
+    <strong>
+      <time datetime={post.data.pubDate}>
+        {
+          new Date(post.data.pubDate).toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </time>
+    </strong>
+    <hr />
+    <p>{post.data.description}</p>
+  </div>
+</div>
+
+<style lang="scss">
+  .thumbnail {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  figure {
+    padding: 10px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5%);
+    }
+  }
+
+  .post-card {
+    background-color: #296e63;
+    border-radius: 16px !important;
+    transition: 500ms;
+  }
+
+  .info {
+    padding: 10px;
+
+    h3 {
+      font-size: 1.5em;
+    }
+
+    p {
+      font-size: 0.9em;
+    }
+  }
+</style>

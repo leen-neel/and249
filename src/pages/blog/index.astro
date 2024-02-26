@@ -1,0 +1,18 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export const posts = await getCollection("blog");
+
+import BlogCard from "~/components/BlogCard.astro";
+---
+
+<Layout title="Blog">
+  <section class="md:px-[10rem] px-3 mt-12">
+    <h2 class="group text-3xl md:text-5xl font-bold mb-4">Blog</h2>
+
+    <div class="grid md:grid-cols-4">
+      {posts.map((post) => <BlogCard post={post} />)}
+    </div>
+  </section>
+</Layout>
