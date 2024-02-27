@@ -2,6 +2,8 @@
 import Layout from "layouts/Layout.astro";
 import { Picture } from "astro:assets";
 
+import { toNormalCase } from "~/utils";
+
 import { getEntry } from "astro:content";
 const { slug } = Astro.params;
 
@@ -43,6 +45,9 @@ import "~/styles/blog.scss";
             })
           }
         </time>
+        | Category: <a href={`/category/${data.category.toLowerCase()}`}
+          >{toNormalCase(data.category)}</a
+        >
       </strong>
     </div>
 
