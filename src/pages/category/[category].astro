@@ -2,6 +2,8 @@
 import Layout from "layouts/Layout.astro";
 import BlogCard from "components/BlogCard.astro";
 
+import { toNormalCase } from "~/utils";
+
 import { getCollection } from "astro:content";
 const { category } = Astro.params;
 
@@ -16,14 +18,10 @@ if (filteredPosts.length === 0) {
 }
 ---
 
-<Layout
-  title={`Category - ${category?.charAt(0).toUpperCase() + category!.substring(1).toLowerCase()}`}
->
+<Layout title={`Category - ${toNormalCase(category!)}`}>
   <section class="md:px-[10rem] px-3 mt-12">
     <h2 class="group text-3xl md:text-5xl font-bold mb-4">
-      Category: {
-        category?.charAt(0).toUpperCase() + category!.substring(1).toLowerCase()
-      }
+      Category: {toNormalCase(category!)}
     </h2>
 
     <div class="grid md:grid-cols-4 gap-3">
