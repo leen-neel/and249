@@ -45,7 +45,9 @@ import "~/styles/blog.scss";
             })
           }
         </time>
-        | Category: {toNormalCase(data.category)}
+        | Category: <a href={`/category/${data.category.toLowerCase()}`}
+          >{toNormalCase(data.category)}</a
+        >
       </strong>
     </div>
 
