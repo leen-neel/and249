@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+const { category } = Astro.params;
+
+// const posts = await getCollection("blog", ({ data }) => {
+//   data.category.toLowerCase() === category;
+// });
+
+const posts = await getCollection("blog");
+
+const filteredPosts = posts.filter((post) => {
+  return post.data.category.toLowerCase() === category;
+});
+---
