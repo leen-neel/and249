@@ -3,7 +3,7 @@ title: "Decoupling the CMS: A Closer Look to Headless WordPress"
 description: "Decoupled CMS architecture empowers content creators to focus on their craft while allowing developers to build flexible front-end experiences. 🌟"
 draft: false
 pubDate: "2.26.2024"
-heroImage: "headless-wordpress.png"
+heroImage: "./images/headless-wordpress.png"
 category: "Web Dev"
 tags:
   - web dev
