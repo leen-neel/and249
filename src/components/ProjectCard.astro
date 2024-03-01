@@ -1,16 +1,31 @@
 ---
 import { Picture } from "astro:assets";
 
+// export interface Props {
+//   title: string;
+//   image: string;
+//   url: string;
+//   badges: string[];
+//   desc: string;
+//   isClient: boolean;
+// }
+
 export interface Props {
-  title: string;
-  image: string;
-  url: string;
-  badges: string[];
-  desc: string;
-  isClient: boolean;
+  project: {
+    id: string;
+    data: {
+      title: string;
+      image: ImageMetadata;
+      url: string;
+      badges: string[];
+      isClient: boolean;
+    };
+  };
 }
 
-const { isClient, title, image, badges, url, desc } = Astro.props;
+const { project } = Astro.props;
+
+const { title, image, url, badges, isClient } = project.data;
 ---
 
 <div class="card bg-teal-900 shadow-xl">
@@ -36,9 +51,7 @@ const { isClient, title, image, badges, url, desc } = Astro.props;
       </div>
     </h3>
 
-    <p class="flex justify-center place-content-center">
-      <Fragment set:html={desc} />
-    </p>
+    <p class="flex justify-center place-content-center">sexy times</p>
 
     <div class="card-actions justify-start mt-5">
       {badges.map((badge) => <div class="badge badge-outline">{badge}</div>)}
