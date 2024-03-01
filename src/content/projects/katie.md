@@ -9,4 +9,4 @@ tags:
 isClient: true
 ---
 
-<p>Designed and developed Katie Jo Pochat's website using WordPres and Elementor. Included her in every step of the process in buiding the site.</p>
+Designed and developed Katie Jo Pochat's website using WordPres and Elementor. Included her in every step of the process in buiding the site.
