@@ -1,23 +1,15 @@
 ---
 import Card from "../components/ProjectCard.astro";
-import projects from "../data/projects";
+
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
 ---
 
 <section class="md:px-[10rem] px-3">
   <h2 class="group text-3xl md:text-5xl font-bold mb-4">Projects</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    {
-      projects.map((project) => (
-        <Card
-          title={project.title}
-          badges={project.tags}
-          image={project.image}
-          url={project.url}
-          desc={project.description}
-          isClient={project.isClient}
-        />
-      ))
-    }
+    {projects.map((project) => <Card slug={project.slug} />)}
   </div>
 </section>
