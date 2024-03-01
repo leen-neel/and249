@@ -1,31 +1,17 @@
 ---
 import { Picture } from "astro:assets";
 
-// export interface Props {
-//   title: string;
-//   image: string;
-//   url: string;
-//   badges: string[];
-//   desc: string;
-//   isClient: boolean;
-// }
+import { getEntry } from "astro:content";
 
 export interface Props {
-  project: {
-    id: string;
-    data: {
-      title: string;
-      image: ImageMetadata;
-      url: string;
-      badges: string[];
-      isClient: boolean;
-    };
-  };
+  slug: string;
 }
 
-const { project } = Astro.props;
+const { slug } = Astro.props;
 
-const { title, image, url, badges, isClient } = project.data;
+const project = await getEntry("projects", slug);
+const { title, image, url, badges, isClient } = project!.data;
+const { Content } = await project!.render();
 ---
 
 <div class="card bg-teal-900 shadow-xl">
@@ -51,7 +37,9 @@ const { title, image, url, badges, isClient } = project.data;
       </div>
     </h3>
 
-    <p class="flex justify-center place-content-center">sexy times</p>
+    <p class="flex justify-center place-content-center">
+      <Content />
+    </p>
 
     <div class="card-actions justify-start mt-5">
       {badges.map((badge) => <div class="badge badge-outline">{badge}</div>)}
