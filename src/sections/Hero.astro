@@ -1,6 +1,10 @@
 ---
 import socials from "../data/socials";
 import Socials from "../components/Socials.astro";
+
+import { Image } from "astro:assets";
+
+import MyImage from "images/Myself.jpeg";
 ---
 
 <section class="md:px-[10rem] hero flex items-center md:min-h-screen h-[80vh]">
@@ -54,10 +58,11 @@ import Socials from "../components/Socials.astro";
         >
         </div>
 
-        <img
+        <Image
           transition:name="hero"
           transition:animate="fade"
-          src="Myself.jpeg"
+          src={MyImage}
+          width={1000}
           alt="An image of Anindo Neel Dutta"
           class="z-10 max-w-xs md:max-w-sm md:rounded-full rounded-lg shadow-2xl md:mt-0 mt-10 border-0 md:border-t-2 md:border-b-2 border-cyan-500"
         />
