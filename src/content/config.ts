@@ -21,7 +21,7 @@ const projectCollection = defineCollection({
       title: z.string(),
       url: z.string(),
       image: image(),
-      badges: z.array(z.string()),
+      tags: z.array(z.string()),
       isClient: z.boolean(),
     }),
 });

@@ -10,7 +10,7 @@ export interface Props {
 const { slug } = Astro.props;
 
 const project = await getEntry("projects", slug);
-const { title, image, url, badges, isClient } = project!.data;
+const { title, image, url, tags, isClient } = project!.data;
 const { Content } = await project!.render();
 ---
 
@@ -42,7 +42,7 @@ const { Content } = await project!.render();
     </p>
 
     <div class="card-actions justify-start mt-5">
-      {badges.map((badge) => <div class="badge badge-outline">{badge}</div>)}
+      {tags.map((badge) => <div class="badge badge-outline">{badge}</div>)}
     </div>
   </div>
 </div>

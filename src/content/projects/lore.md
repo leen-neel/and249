@@ -2,7 +2,7 @@
 title: "Lore.com"
 url: "https://lore.com"
 image: "./images/lore.jpg"
-badges:
+tags:
   - "Astro"
   - "Ghost CMS"
   - "Tailwind CSS"
