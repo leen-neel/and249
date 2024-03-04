@@ -2,7 +2,7 @@
   import { reactive, watch, ref } from "vue";
   import { object, string } from "yup";
 
-  // import { sendEmail } from "~/pages/api/email";
+  const showNotif = ref(false);
 
   const form = reactive({
     name: "",
@@ -25,6 +25,11 @@
     form.name = "";
     form.email = "";
     form.message = "";
+    showNotif.value = true;
+
+    setTimeout(() => {
+      showNotif.value = false;
+    }, 3000);
   };
 
   const schema = object({
@@ -46,10 +51,6 @@
       isValid.value = false;
     }
   });
-
-  const testEmail = async () => {
-    await fetch("/api/emailTest");
-  };
 </script>
 
 <template>
@@ -109,4 +110,19 @@
       Send Message
     </button>
   </form>
+
+  <div v-if="showNotif" class="toast toast-top">
+    <div class="alert alert-success">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+      >
+        <path fill="black" d="m10 16.4l-4-4L7.4 11l2.6 2.6L16.6 7L18 8.4z" />
+      </svg>
+
+      <span>Message sent successfully</span>
+    </div>
+  </div>
 </template>
