@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://and249.codes/sitemap-index.xml
+Sitemap: https://anindoneel.com/sitemap-index.xml
