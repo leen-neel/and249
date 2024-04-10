@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://anindoneel.com/sitemap-index.xml
