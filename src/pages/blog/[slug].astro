@@ -19,7 +19,7 @@ const { data } = entry;
 import "~/styles/blog.scss";
 ---
 
-<Layout title={data.title} image={`/blog/${data.heroImage}`}>
+<Layout title={data.title} image={`/blog/${slug}.${data.heroImage.format}`}>
   <article class="p-3 md:px-[10rem] px-10">
     <figure>
       <Image
