@@ -4,6 +4,10 @@ $border: #1e877d;
 article {
   .title {
     font-size: 3em;
+
+    &::before {
+      content: "# ";
+    }
   }
 
   .date {
@@ -31,11 +35,18 @@ article {
   h2 {
     font-size: 2em;
     font-weight: 600;
+    &:before {
+      content: "## ";
+    }
   }
 
   h3 {
     font-size: 1.8em;
-    font-weight: 600;
+    font-weight: 00;
+
+    &:before {
+      content: "### ";
+    }
   }
 
   h4 {
