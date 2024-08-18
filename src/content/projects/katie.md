@@ -9,4 +9,4 @@ tags:
 isClient: true
 ---
 
-Designed and developed Katie Jo Pochat's website using WordPres and Elementor. Included her in every step of the process in buiding the site.
+Designed and developed Katie Jo Pockat's website using WordPress and Elementor. Included her in every step of the process in buiding the site.

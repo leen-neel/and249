@@ -4,7 +4,13 @@ import { getCollection } from "astro:content";
 
 export let posts = await getCollection("blog");
 
-posts = posts.filter((post) => !post.data.draft);
+posts = posts.filter((post) => {
+  if (process.env.NODE_ENV === "development") {
+    return post;
+  }
+
+  return post.data.draft === false;
+});
 
 import BlogCard from "~/components/BlogCard.astro";
 ---
