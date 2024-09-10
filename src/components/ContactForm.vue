@@ -1,56 +1,58 @@
 <script lang="ts" setup>
-  import { reactive, watch, ref } from "vue";
-  import { object, string } from "yup";
+import { reactive, watch, ref } from "vue";
+import { object, string } from "yup";
 
-  const showNotif = ref(false);
+const showNotif = ref(false);
 
-  const form = reactive({
-    name: "",
-    email: "",
-    message: "",
+const form = reactive({
+  name: "",
+  email: "",
+  message: "",
+});
+const isValid = ref(false);
+const isLoading = ref(false);
+
+const sendMessage = async () => {
+  isLoading.value = true;
+  isValid.value = false;
+
+  await fetch("https://portfolio-contact-form-woad.vercel.app/api", {
+    method: "POST",
+    body: JSON.stringify(form),
   });
-  const isValid = ref(false);
-  const isLoading = ref(false);
 
-  const sendMessage = async () => {
-    isLoading.value = true;
-    isValid.value = false;
-    await fetch("/api/email", {
-      method: "POST",
-      body: JSON.stringify(form),
+  isLoading.value = false;
+  isValid.value = true;
+
+  form.name = "";
+  form.email = "";
+  form.message = "";
+  showNotif.value = true;
+
+  setTimeout(() => {
+    showNotif.value = false;
+  }, 3000);
+};
+
+const schema = object({
+  name: string().required(),
+  email: string().email().required(),
+  message: string().required().min(10),
+});
+
+watch(form, async () => {
+  try {
+    await schema.validate({
+      name: form.name,
+      email: form.email,
+      message: form.message,
     });
-    isLoading.value = false;
+
     isValid.value = true;
-
-    form.name = "";
-    form.email = "";
-    form.message = "";
-    showNotif.value = true;
-
-    setTimeout(() => {
-      showNotif.value = false;
-    }, 3000);
-  };
-
-  const schema = object({
-    name: string().required(),
-    email: string().email().required(),
-    message: string().required().min(10),
-  });
-
-  watch(form, async () => {
-    try {
-      await schema.validate({
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      });
-
-      isValid.value = true;
-    } catch (error) {
-      isValid.value = false;
-    }
-  });
+  } catch (error) {
+    isValid.value = false;
+  }
+});
 </script>
 
 <template>
