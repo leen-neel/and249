@@ -13,6 +13,30 @@ const filteredPosts = posts.filter((post) => {
   return post.data.category.toLowerCase() === category;
 });
 
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  const categories = [
+    ...new Set(posts.map((post) => post.data.category.toLowerCase()).flat()),
+  ];
+
+  return Array.from(categories).map((filteredCategory) => {
+    // FIltering out the posts
+    const filteredPosts = posts.filter(
+      (post) => post.data.category.toLowerCase() === filteredCategory
+    );
+
+    return {
+      params: {
+        category: filteredCategory,
+      },
+      props: {
+        posts: filteredPosts,
+      },
+    };
+  });
+}
+
 if (filteredPosts.length === 0) {
   return Astro.redirect("/404");
 }

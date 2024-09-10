@@ -4,17 +4,21 @@ import { Image } from "astro:assets";
 
 import { toNormalCase } from "~/utils";
 
-import { getEntry } from "astro:content";
+import { getEntry, getCollection } from "astro:content";
 const { slug } = Astro.params;
 
 const entry = await getEntry("blog", slug!);
 
-if (entry === undefined) {
-  return Astro.redirect("/404");
-}
-
 const { Content } = await entry.render();
 const { data } = entry;
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
 
 import "~/styles/blog.scss";
 ---
