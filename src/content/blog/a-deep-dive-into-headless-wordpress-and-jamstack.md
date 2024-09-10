@@ -13,6 +13,8 @@ tags:
   - decoupled
 ---
 
+I've had the honor to talk about this topic in [WordCamp Nagpur 2024](https://nagpur.wordcamp.org/2024/jamstack-meets-wordpress-anindo-neel-dutta-to-lead-advanced-workshop-at-wordcamp-nagpur-2024/). This post is pretty much an excerpt of my session.
+
 WordPress is a content-management system that uses a traditional templating system to render content to the users. WordPress uses a query string to find the content from the backend and display it on the frontend using template files.
 
 ## Dynamic Rendering
