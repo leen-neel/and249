@@ -42,7 +42,10 @@ if (filteredPosts.length === 0) {
 }
 ---
 
-<Layout title={`Category - ${toNormalCase(category!)}`}>
+<Layout
+  title={`Category - ${toNormalCase(category!)}`}
+  slug={`category/${category}`}
+>
   <section class="md:px-[10rem] px-3 mt-12">
     <h2 class="group text-3xl md:text-5xl font-bold mb-4">
       Category: {toNormalCase(category!)}

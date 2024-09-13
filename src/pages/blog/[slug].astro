@@ -23,7 +23,11 @@ export async function getStaticPaths() {
 import "~/styles/blog.scss";
 ---
 
-<Layout title={data.title} image={`/blog/${slug}.${data.heroImage.format}`}>
+<Layout
+  title={data.title}
+  image={`/blog/${slug}.${data.heroImage.format}`}
+  slug={`blog/${entry.slug}`}
+>
   <article class="p-3 md:px-[10rem] px-10">
     <figure>
       <Image

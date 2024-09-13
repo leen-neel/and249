@@ -3,6 +3,7 @@ export interface Props {
   title?: string;
   description?: string;
   image?: string;
+  slug: string;
 }
 
 import socials from "~/data/socials";
@@ -12,9 +13,9 @@ import BaseHead from "~/components/BaseHead.astro";
 import Logo from "~/components/Logo.astro";
 import Contact from "~/sections/Contact.astro";
 
-import { SITE_TITLE, SITE_DESC, SITE_IMG } from "../config";
+import { SITE_TITLE, SITE_DESC, SITE_IMG, SITE_URL } from "../config";
 import { ViewTransitions } from "astro:transitions";
-const { image, title, description } = Astro.props;
+const { image, title, description, slug } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +25,7 @@ const { image, title, description } = Astro.props;
       title={title ? `${title} | ${SITE_TITLE}` : SITE_TITLE}
       description={description ? description : SITE_DESC}
       image={image ? image : SITE_IMG}
+      canonical={SITE_URL + slug}
     />
     <ViewTransitions transition:animate="slide" />
   </head>
