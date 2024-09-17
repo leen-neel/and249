@@ -19,7 +19,7 @@ article {
     background-color: $primary;
     border: none;
     border-radius: 8px;
-    margin: 10px 0;
+    @apply my-7;
   }
 
   p {
