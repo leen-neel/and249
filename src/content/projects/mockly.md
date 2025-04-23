@@ -1,6 +1,6 @@
 ---
 title: "Mockly"
-url: "https://classy.and249.codes/"
+url: "https://ai-mock-interview-neon-six.vercel.app/"
 image: "./images/mockly.png"
 tags:
   - "NuxtJS"

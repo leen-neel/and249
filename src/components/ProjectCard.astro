@@ -29,9 +29,16 @@ const { Content } = await project!.render();
   </figure>
   <div class="card-body">
     <h3 class="card-title">
-      <a href={url} class="underline hover:no-underline" target="_blank">
-        {title}
-      </a>
+      {
+        url ? (
+          <a href={url} class="underline hover:no-underline" target="_blank">
+            {title}
+          </a>
+        ) : (
+          <span>{title}</span>
+        )
+      }
+
       <div class="badge badge-success">
         {isClient ? "Client" : "Personal"}
       </div>

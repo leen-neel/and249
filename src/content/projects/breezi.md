@@ -1,6 +1,5 @@
 ---
 title: "Breezi"
-url: "https://postcardsapp.netlify.app/"
 image: "./images/breezi.png"
 isClient: false
 tags:

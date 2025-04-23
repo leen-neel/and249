@@ -19,7 +19,7 @@ const projectCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      url: z.string(),
+      url: z.string().optional(),
       image: image(),
       tags: z.array(z.string()),
       isClient: z.boolean(),
