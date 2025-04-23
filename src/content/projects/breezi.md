@@ -1,0 +1,15 @@
+---
+title: "Breezi"
+url: "https://postcardsapp.netlify.app/"
+image: "./images/breezi.png"
+isClient: false
+tags:
+  - "NextJS"
+  - "Vapi"
+  - "Gemini"
+  - "Drizzle ORM"
+  - Stripe
+wip: true
+---
+
+A mindfulness app that helps users track their emotional well-being through voice journaling. Built using the Vapi voice agent to record and transcribe journal entries, Gemini to analyze and grade emotional tone, and Stripe for handling subscriptions and payments. Drizzle ORM is used to manage the relational database with clean, type-safe queries.
