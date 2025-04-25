@@ -15,7 +15,7 @@ const socials = [
     name: "Instagram",
   },
   {
-    link: "https://www.linkedin.com/in/and249/",
+    link: "https://www.linkedin.com/in/anindoneel/",
     icon: "mdi:linkedin",
     name: "LinkedIn",
   },
