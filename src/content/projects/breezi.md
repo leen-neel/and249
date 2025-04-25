@@ -2,6 +2,7 @@
 title: "Breezi"
 image: "./images/breezi.png"
 isClient: false
+url: "https://youtu.be/CE30bQ16jnw"
 tags:
   - "NextJS"
   - "Vapi"

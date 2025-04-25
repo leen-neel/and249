@@ -30,3 +30,9 @@ html {
 .thumbnail {
   @apply w-full rounded-lg;
 }
+
+.desc {
+  a {
+    @apply underline hover:no-underline;
+  }
+}

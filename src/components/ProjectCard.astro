@@ -46,9 +46,9 @@ const { Content } = await project!.render();
       {wip && <div class="badge badge-warning">WIP</div>}
     </h3>
 
-    <p class="flex justify-center place-content-center">
+    <div class="desc">
       <Content />
-    </p>
+    </div>
 
     <div class="card-actions justify-start mt-5">
       {tags.map((badge) => <div class="badge badge-outline">{badge}</div>)}
