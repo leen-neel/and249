@@ -4,8 +4,8 @@ const skills = [
     icon: "vue",
   },
   {
-    name: "Quasar",
-    icon: "simple-icons:quasar",
+    name: "NuxtJS",
+    icon: "nuxt",
   },
   {
     name: "Astro",
@@ -16,8 +16,8 @@ const skills = [
     icon: "vscode-icons:file-type-typescript-official",
   },
   {
-    name: "WordPress",
-    icon: "bi:wordpress",
+    name: "NextJS",
+    icon: "next",
   },
   {
     name: "NodeJS",
