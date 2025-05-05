@@ -1,5 +1,6 @@
 ---
 title: "Breezi"
+slug: "breezi"
 image: "./images/breezi.png"
 isClient: false
 url: "https://youtu.be/CE30bQ16jnw"

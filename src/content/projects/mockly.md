@@ -1,5 +1,6 @@
 ---
 title: "Mockly"
+slug: "mockly"
 url: "https://ai-mock-interview-neon-six.vercel.app/"
 image: "./images/mockly.png"
 tags:
