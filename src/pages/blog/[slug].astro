@@ -5,17 +5,18 @@ import { Image } from "astro:assets";
 import { toNormalCase } from "~/utils";
 
 import { getEntry, getCollection } from "astro:content";
+import { render } from "astro:content";
+
 const { slug } = Astro.params;
 
 const entry = await getEntry("blog", slug!);
 
-const { Content } = await entry.render();
-const { data } = entry;
+const { Content } = entry ? await render(entry) : { Content: () => null };
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
@@ -24,17 +25,17 @@ import "~/styles/blog.scss";
 ---
 
 <Layout
-  title={data.title}
-  image={`/blog/${slug}.${data.heroImage.format}`}
-  slug={`blog/${entry.slug}`}
-  description={data.description}
+  title={entry?.data.title}
+  image={`/blog/${slug}.${entry?.data.heroImage.format}`}
+  slug={`blog/${entry?.id}`}
+  description={entry?.data.description}
 >
   <article class="p-3 md:px-[10rem] px-10">
     <figure>
       <Image
         class="thumbnail"
-        src={data.heroImage}
-        alt={data.title}
+        src={entry?.data.heroImage!}
+        alt={entry?.data.title!}
         transition:name={slug}
         width={1920}
         height={1080}
@@ -44,22 +45,25 @@ import "~/styles/blog.scss";
     <div class="mt-10 md:text-xl">
       📅
       <strong>
-        <time datetime={data.pubDate}>
+        <time datetime={entry?.data.pubDate}>
           {
-            new Date(data.pubDate).toLocaleDateString("en-in", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
+            new Date(entry?.data.pubDate as string).toLocaleDateString(
+              "en-in",
+              {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }
+            )
           }
         </time>
-        | Category: <a href={`/category/${data.category.toLowerCase()}`}
-          >{toNormalCase(data.category)}</a
+        | Category: <a href={`/category/${entry?.data.category.toLowerCase()}`}
+          >{toNormalCase(entry?.data.category)}</a
         >
       </strong>
     </div>
 
-    <h1 class="title">{data.title}</h1>
+    <h1 class="title">{entry?.data.title}</h1>
 
     <hr class="my-10" />
 

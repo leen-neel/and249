@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 export interface Props {
   post: {
-    slug: string;
+    id: string;
     data: {
       title: string;
       heroImage: ImageMetadata;
@@ -16,20 +16,20 @@ const { post } = Astro.props;
 ---
 
 <div class="post-card">
-  <a href={`/blog/${post.slug}`}>
+  <a href={`/blog/${post.id}`}>
     <figure>
       <Image
         class="thumbnail"
         src={post.data.heroImage}
         alt={post.data.title}
-        transition:name={post.slug}
+        transition:name={post.id}
         width={700}
         height={700}
       />
     </figure>
   </a>
   <div class="info">
-    <a href={`/blog/${post.slug}`}>
+    <a href={`/blog/${post.id}`}>
       <h3>{post.data.title}</h3>
     </a>
     📅
