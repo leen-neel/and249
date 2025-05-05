@@ -22,7 +22,6 @@ const projectCollection = defineCollection({
       url: z.string().optional(),
       image: image(),
       tags: z.array(z.string()),
-      isClient: z.boolean(),
       wip: z.boolean().optional(),
     }),
 });

@@ -10,7 +10,7 @@ export interface Props {
 const { slug } = Astro.props;
 
 const project = await getEntry("projects", slug);
-const { title, image, url, tags, isClient, wip } = project!.data;
+const { title, image, url, tags, wip } = project!.data;
 const { Content } = await project!.render();
 ---
 
@@ -38,10 +38,6 @@ const { Content } = await project!.render();
           <span>{title}</span>
         )
       }
-
-      <div class="badge badge-success">
-        {isClient ? "Client" : "Personal"}
-      </div>
 
       {wip && <div class="badge badge-warning">WIP</div>}
     </h3>
