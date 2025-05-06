@@ -4,8 +4,9 @@ title: "DocPilot"
 url: "https://docpilot.anindoneel.com/"
 image: "./images/docpilot.png"
 tags:
-  - "WordPress"
-  - "Elementor"
+  - "NextJS"
+  - "Gemini"
+  - "Drizzle ORM"
 wip: true
 ---
 
