@@ -84,7 +84,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative aspect-square w-full max-w-[600px] overflow-hidden rounded-full">
+            <div className="relative aspect-square w-full max-w-[600px] overflow-hidden rounded-full transition-all duration-300 hover:rotate-12">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-teal-500/20" />
               <Image
                 src="/Me.png"
@@ -93,7 +93,7 @@ const HeroSection = () => {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 rounded-full border border-white/10" />
+              <div className="absolute inset-0 rounded-full border border-white/10 " />
             </div>
             {/* Decorative Elements */}
             <div className="absolute -right-4 -top-4 h-32 w-32 rounded-full bg-emerald-500/20 blur-2xl" />

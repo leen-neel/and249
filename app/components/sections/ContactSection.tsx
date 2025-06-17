@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
 
 const ContactSection = () => {
@@ -100,12 +101,12 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
-                    <a
-                      href="mailto:your.email@example.com"
+                    <Link
+                      href="mailto:and24903@gmail.com"
                       className="text-white hover:text-gray-300"
                     >
-                      hello@anindoneel.com
-                    </a>
+                      and24903@gmail.com
+                    </Link>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">

@@ -21,15 +21,15 @@ export default function FloatingNav({
   const navItems = [
     {
       name: "About",
-      link: "#about",
+      link: "/#about",
     },
     {
       name: "Projects",
-      link: "#projects",
+      link: "/#projects",
     },
     {
       name: "Contact",
-      link: "#contact",
+      link: "/#contact",
     },
   ];
 
@@ -43,9 +43,11 @@ export default function FloatingNav({
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="primary" className="rounded-full m-2">
-              Book a call
-            </NavbarButton>
+            <Link href="https://cal.com/anindo-neel-dutta-epyib1/30min">
+              <NavbarButton variant="primary" className="rounded-full m-2">
+                Book a call
+              </NavbarButton>
+            </Link>
           </div>
         </NavBody>
 
@@ -74,20 +76,15 @@ export default function FloatingNav({
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
-              </NavbarButton>
+              <Link href="https://cal.com/anindo-neel-dutta-epyib1/30min">
+                <NavbarButton
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  variant="primary"
+                  className="w-full"
+                >
+                  Book a call
+                </NavbarButton>
+              </Link>
             </div>
           </MobileNavMenu>
         </MobileNav>
