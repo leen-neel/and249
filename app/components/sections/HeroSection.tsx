@@ -1,16 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import Image from "next/image";
 import Link from "next/link";
 
 const BackgroundBeams = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute -top-40 left-0 h-[500px] w-[500px] rounded-full bg-emerald-500/30 blur-[100px]" />
-      <div className="absolute -bottom-40 right-0 h-[500px] w-[500px] rounded-full bg-teal-500/30 blur-[100px]" />
-      <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-[80px]" />
+      <motion.div
+        animate={{
+          y: [0, -40, 0],
+          x: [0, 20, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -top-40 left-0 h-[500px] w-[500px] rounded-full bg-emerald-500/30 blur-[100px]"
+      />
+      <motion.div
+        animate={{
+          y: [0, 40, 0],
+          x: [0, -20, 0],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -bottom-40 right-0 h-[500px] w-[500px] rounded-full bg-teal-500/30 blur-[100px]"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 10, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-[80px]"
+      />
     </div>
   );
 };
