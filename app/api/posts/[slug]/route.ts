@@ -5,9 +5,10 @@ import matter from "gray-matter";
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const postsDirectory = path.join(process.cwd(), "app/content");
     const files = fs.readdirSync(postsDirectory);
 
@@ -25,7 +26,7 @@ export async function GET(
           content,
         };
       })
-      .find((post) => post.slug === params.slug);
+      .find((post) => post.slug === slug);
 
     if (!post) {
       return new NextResponse("Post not found", { status: 404 });

@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/utils/cn";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
   motion,
@@ -196,7 +196,6 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose,
 }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>

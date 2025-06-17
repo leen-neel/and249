@@ -18,17 +18,13 @@ const ContactSection = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus("idle");
 
     try {
       const response = await fetch("https://example.com/email", {
@@ -45,7 +41,7 @@ const ContactSection = () => {
 
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -66,7 +62,7 @@ const ContactSection = () => {
             Get in Touch
           </h2>
           <p className="mt-4 text-gray-400">
-            Let's discuss your next project or opportunity
+            Let&apos;s discuss your next project or opportunity
           </p>
         </motion.div>
 
@@ -144,9 +140,9 @@ const ContactSection = () => {
                 Availability
               </h3>
               <p className="text-gray-400">
-                I'm currently available for freelance projects and full-time
-                opportunities. Let's discuss how I can help bring your ideas to
-                life.
+                I&apos;m currently available for freelance projects and
+                full-time opportunities. Let&apos;s discuss how I can help bring
+                your ideas to life.
               </p>
             </div>
           </motion.div>

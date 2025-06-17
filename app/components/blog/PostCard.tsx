@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Post } from "@/app/utils/posts";
 
 interface PostCardProps {
   post: Post;

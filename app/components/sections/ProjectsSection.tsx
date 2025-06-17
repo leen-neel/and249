@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const ProjectsSection = () => {
   const projects = [
@@ -8,7 +9,7 @@ const ProjectsSection = () => {
       title: "DocPilot",
       description:
         "DocPilot is a developer tool that lets teams create rich, interactive API documentation with built-in SDKs, mock servers, and AI features — all in one place.",
-      image: "./projects/docpilot.png",
+      image: "/projects/docpilot.png",
       tags: ["Next.js", "TypeScript", "PostgreSQL", "Gemini"],
       link: "https://docpilot.dev",
     },
@@ -16,7 +17,7 @@ const ProjectsSection = () => {
       title: "Breezi",
       description:
         "Breezi is a voice-first mindfulness app that helps users track their emotional well-being. It uses voice journaling powered by Vapi, emotional analysis with Gemini, and manages subscriptions seamlessly through Stripe — all backed by a clean Drizzle ORM database.",
-      image: "./projects/breezi.png",
+      image: "/projects/breezi.png",
       tags: ["React", "Node.js", "PostgreSQL", "Vapi", "Gemini"],
       link: "https://youtu.be/CE30bQ16jnw",
     },
@@ -24,7 +25,7 @@ const ProjectsSection = () => {
       title: "Mockly",
       description:
         "Mockly is an AI-powered mock interview platform that simulates real interview scenarios. It uses Vapi for voice interaction, Gemini for dynamic question generation and feedback, and Firebase for seamless auth and real-time data.",
-      image: "./projects/mockly.png",
+      image: "/projects/mockly.png",
       tags: ["NuxtJS", "Vapi", "Gemini", "Firebase"],
       link: "https://ai-mock-interview-neon-six.vercel.app/",
     },
@@ -59,10 +60,12 @@ const ProjectsSection = () => {
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:bg-white/10"
             >
               <div className="relative aspect-video overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
@@ -85,6 +88,8 @@ const ProjectsSection = () => {
                 </div>
                 <a
                   href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-4 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20"
                 >
                   View Project

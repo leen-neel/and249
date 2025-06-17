@@ -106,7 +106,7 @@ const AboutSection = () => {
             href="#contact"
             className="inline-block rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20"
           >
-            Let's Work Together
+            Let&apos;s Work Together
           </a>
         </motion.div>
       </div>

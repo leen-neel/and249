@@ -10,7 +10,6 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import Link from "next/link";
 import { useState } from "react";
 
 export default function FloatingNav({
@@ -43,11 +42,11 @@ export default function FloatingNav({
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <Link href="https://cal.com/anindo-neel-dutta-epyib1/30min">
+            <a href="https://cal.com/anindo-neel-dutta-epyib1/30min">
               <NavbarButton variant="primary" className="rounded-full m-2">
                 Book a call
               </NavbarButton>
-            </Link>
+            </a>
           </div>
         </NavBody>
 
@@ -60,36 +59,30 @@ export default function FloatingNav({
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
           </MobileNavHeader>
-
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
-            {navItems.map((item, idx) => (
+            {navItems.map((item, index) => (
               <a
-                key={`mobile-link-${idx}`}
+                key={index}
                 href={item.link}
+                className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
               >
-                <span className="block">{item.name}</span>
+                {item.name}
               </a>
             ))}
-            <div className="flex w-full flex-col gap-4">
-              <Link href="https://cal.com/anindo-neel-dutta-epyib1/30min">
-                <NavbarButton
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variant="primary"
-                  className="w-full"
-                >
-                  Book a call
-                </NavbarButton>
-              </Link>
-            </div>
+            <a
+              href="https://cal.com/anindo-neel-dutta-epyib1/30min"
+              className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Book a call
+            </a>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-
       {children}
     </div>
   );

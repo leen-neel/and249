@@ -67,7 +67,7 @@ const HeroSection = () => {
               className="mb-8"
             >
               <h1 className="text-4xl font-bold text-white md:text-7xl">
-                Greetings! I'm Anindo 👋🏻
+                Greetings! I&apos;m Anindo 👋🏻
               </h1>
             </motion.div>
 
