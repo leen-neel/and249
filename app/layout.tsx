@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Anindo's Portfolio",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Anindo's Portfolio",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Anindo Neel Dutta – Full-Stack Developer for SaaS, AI & Web Apps",
     description:
       "Full-stack engineer specializing in AI, voice tech, and scalable SaaS. Explore Anindo Neel Dutta's portfolio, projects, and writing on web development, product building, and modern frontend tools.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
