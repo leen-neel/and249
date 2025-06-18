@@ -94,7 +94,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
       >
         <FloatingNav>{children}</FloatingNav>
-        <GoogleAnalytics gaId="G-2N06X7N287" />
+        <GoogleAnalytics gaId="G-YBDW21NF4Y" />
       </body>
     </html>
   );
