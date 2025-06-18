@@ -27,16 +27,13 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(
-        "https://portfolio-contact-form-woad.vercel.app/api",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to send message");
