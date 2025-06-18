@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import FloatingNav from "./components/sections/FloatingNav";
@@ -14,6 +14,12 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#53e6cc",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "Anindo Neel Dutta – Full-Stack Developer for SaaS, AI & Web Apps",
@@ -40,14 +46,6 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
-  },
-  icons: {
-    icon: "/favicon.svg",
-  },
-  themeColor: "#53e6cc",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
   },
   openGraph: {
     type: "website",
