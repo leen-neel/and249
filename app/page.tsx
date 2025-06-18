@@ -6,6 +6,7 @@ import AboutSection from "./components/sections/AboutSection";
 import ProjectsSection from "./components/sections/ProjectsSection";
 import ContactSection from "./components/sections/ContactSection";
 import SocialLinks from "./components/sections/SocialLinks";
+import Footer from "./components/sections/Footer";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <ProjectsSection />
       <ContactSection />
       <SocialLinks />
+      <Footer />
     </main>
   );
 }
