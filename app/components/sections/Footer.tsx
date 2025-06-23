@@ -211,7 +211,7 @@ const Footer = () => {
             <p className="text-sm text-gray-400">
               © {currentYear} Anindo Neel Dutta. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-gray-400">
+            {/* <div className="flex gap-6 text-sm text-gray-400">
               <Link
                 href="/privacy"
                 className="transition-colors hover:text-white"
@@ -224,7 +224,7 @@ const Footer = () => {
               >
                 Terms of Service
               </Link>
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>
