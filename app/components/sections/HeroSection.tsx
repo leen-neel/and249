@@ -208,7 +208,7 @@ const HeroSection = () => {
     console.log("Starting greetings animation");
 
     const greetings = [
-      "Greetings",
+      "নমস্কার",
       "¡Hola",
       "Bonjour",
       "Ciao",
