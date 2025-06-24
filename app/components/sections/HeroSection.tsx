@@ -106,24 +106,19 @@ const HeroSection = () => {
   useEffect(() => {
     if (!heroRef.current) return;
 
-    const tl = gsap.timeline({ delay: 0.5 });
+    const tl = gsap.timeline({ delay: 0.2 });
 
-    // Animate title with fade in (removing the text plugin animation that overwrites HTML)
-    tl.fromTo(
-      titleRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-      }
-    );
+    // Animate title with fade in
+    tl.to(titleRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
 
     // Animate subtitle
-    tl.fromTo(
+    tl.to(
       subtitleRef.current,
-      { opacity: 0, y: 30 },
       {
         opacity: 1,
         y: 0,
@@ -134,10 +129,10 @@ const HeroSection = () => {
     );
 
     // Animate buttons with stagger
-    if (buttonsRef.current?.children) {
-      tl.fromTo(
-        buttonsRef.current.children,
-        { opacity: 0, y: 20, scale: 0.8 },
+    if (buttonsRef.current) {
+      const buttons = buttonsRef.current.querySelectorAll("button");
+      tl.to(
+        buttons,
         {
           opacity: 1,
           y: 0,
@@ -152,9 +147,8 @@ const HeroSection = () => {
 
     // Animate image with rotation and scale
     if (imageRef.current) {
-      tl.fromTo(
+      tl.to(
         imageRef.current,
-        { opacity: 0, scale: 0.5, rotation: -15 },
         {
           opacity: 1,
           scale: 1,
@@ -190,7 +184,7 @@ const HeroSection = () => {
     // Start the greetings text animation after initial animation
     setTimeout(() => {
       startGreetingsAnimation();
-    }, 2000); // Reduced delay since we removed the text animation
+    }, 2000);
   }, []);
 
   const startGreetingsAnimation = () => {
@@ -277,7 +271,8 @@ const HeroSection = () => {
             <div className="mb-8">
               <h1
                 ref={titleRef}
-                className="text-4xl font-bold text-white md:text-7xl"
+                className="text-4xl font-bold text-white md:text-7xl opacity-0"
+                style={{ transform: "translateY(50px)" }}
               >
                 <span
                   className="greeting-word inline-block transform-gpu perspective-1000"
@@ -294,7 +289,8 @@ const HeroSection = () => {
 
             <p
               ref={subtitleRef}
-              className="mb-12 text-lg text-gray-400 md:text-xl"
+              className="mb-12 text-lg text-gray-400 md:text-xl opacity-0"
+              style={{ transform: "translateY(30px)" }}
             >
               I build, ship, and scale digital products. Got a project in mind?
               How can I help?
@@ -305,7 +301,10 @@ const HeroSection = () => {
                 href="https://cal.com/anindo-neel-dutta-epyib1/30min"
                 target="_blank"
               >
-                <button className="group relative overflow-hidden rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 p-[1px] transition-all hover:scale-105">
+                <button
+                  className="group relative overflow-hidden rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 p-[1px] transition-all hover:scale-105 opacity-0"
+                  style={{ transform: "translateY(20px) scale(0.8)" }}
+                >
                   <span className="relative z-10 block rounded-full bg-black px-8 py-3 text-sm font-medium text-white transition-all group-hover:bg-transparent">
                     Book a call
                   </span>
@@ -313,7 +312,10 @@ const HeroSection = () => {
                 </button>
               </Link>
               <Link href="#projects">
-                <button className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 p-[1px] backdrop-blur-sm transition-all hover:scale-105">
+                <button
+                  className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 p-[1px] backdrop-blur-sm transition-all hover:scale-105 opacity-0"
+                  style={{ transform: "translateY(20px) scale(0.8)" }}
+                >
                   <span className="relative z-10 block rounded-full bg-black px-8 py-3 text-sm font-medium text-white transition-all group-hover:bg-transparent">
                     View Projects
                   </span>
@@ -327,7 +329,8 @@ const HeroSection = () => {
           <div className="relative">
             <div
               ref={imageRef}
-              className="relative aspect-square w-full max-w-[600px] overflow-hidden rounded-full transition-all duration-300 hover:rotate-12"
+              className="relative aspect-square w-full max-w-[600px] overflow-hidden rounded-full transition-all duration-300 hover:rotate-12 opacity-0"
+              style={{ transform: "scale(0.5) rotate(-15deg)" }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 glow-effect" />
               <Image

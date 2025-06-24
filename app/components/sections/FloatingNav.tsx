@@ -26,10 +26,6 @@ export default function FloatingNav({
       name: "Projects",
       link: "/#projects",
     },
-    {
-      name: "Contact",
-      link: "/#contact",
-    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
