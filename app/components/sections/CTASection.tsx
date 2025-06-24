@@ -99,7 +99,7 @@ const CTASection = () => {
   }, []);
 
   return (
-    <section ref={ctaRef} className="relative py-20">
+    <section id="cta" ref={ctaRef} className="relative py-20">
       {/* Animated Background - matching the existing style */}
       <div className="-absolute inset-0">
         <div className="absolute -bottom-40 right-0 h-[500px] w-[500px] rounded-full bg-teal-500/30 blur-[100px] floating-element" />

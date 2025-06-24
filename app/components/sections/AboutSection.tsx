@@ -103,7 +103,7 @@ const AboutSection = () => {
           className="mt-12 text-center"
         >
           <a
-            href="#contact"
+            href="#cta"
             className="inline-block rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20"
           >
             Let&apos;s Work Together
