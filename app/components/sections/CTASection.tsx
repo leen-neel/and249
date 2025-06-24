@@ -130,8 +130,9 @@ const CTASection = () => {
             </h2>
 
             <p className="cta-subtitle mx-auto mb-12 max-w-3xl text-lg text-gray-400 md:text-xl">
-              Join 50+ founders who've transformed their ideas into successful
-              products. Let's create something that changes the world together.
+              Join 50+ founders who&apos;ve transformed their ideas into
+              successful products. Let&apos;s create something that changes the
+              world together.
             </p>
           </motion.div>
 

@@ -5,7 +5,7 @@ import ServicesSection from "./components/sections/ServicesSection";
 import AboutSection from "./components/sections/AboutSection";
 import ProjectsSection from "./components/sections/ProjectsSection";
 import CTASection from "./components/sections/CTASection";
-import ContactSection from "./components/sections/ContactSection";
+// import ContactSection from "./components/sections/ContactSection";
 import SocialLinks from "./components/sections/SocialLinks";
 import Footer from "./components/sections/Footer";
 
