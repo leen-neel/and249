@@ -202,19 +202,19 @@ const HeroSection = () => {
     console.log("Starting greetings animation");
 
     const greetings = [
-      "নমস্কার",
-      "¡Hola",
-      "Bonjour",
-      "Ciao",
-      "Hallo",
-      "Olá",
-      "Привет",
+      "নমস্কার!",
+      "¡Hola!",
+      "Bonjour!",
+      "Ciao!",
+      "Hallo!",
+      "Olá!",
+      "Привет!",
       "こんにちは",
       "안녕하세요",
       "你好",
-      "नमस्ते",
-      "مرحبا",
-      "Greetings",
+      "नमस्ते!",
+      "مرحبا!",
+      "Greetings!",
     ];
 
     let currentIndex = 0;
@@ -283,7 +283,7 @@ const HeroSection = () => {
                 >
                   Greetings
                 </span>
-                ! I&apos;m Anindo 👋🏻
+                <p>I&apos;m Anindo 👋🏻</p>
               </h1>
             </div>
 
