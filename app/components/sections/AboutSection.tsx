@@ -41,7 +41,7 @@ const AboutSection = () => {
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
               <h3 className="mb-4 text-xl font-bold text-white">Background</h3>
               <p className="text-gray-400">
-                With over 5 years of experience in software development, I
+                With over 6 years of experience in software development, I
                 specialize in building scalable SaaS applications and MVPs. My
                 journey in tech has led me through various roles, from startup
                 environments to enterprise solutions, giving me a unique
