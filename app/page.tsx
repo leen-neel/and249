@@ -8,15 +8,18 @@ import CTASection from "./components/sections/CTASection";
 // import ContactSection from "./components/sections/ContactSection";
 import SocialLinks from "./components/sections/SocialLinks";
 import Footer from "./components/sections/Footer";
+import Testimonials from "./components/sections/Testimonials";
 
 export default function Page() {
   return (
     <main className="relative min-h-screen bg-black text-white">
       <HeroSection />
       <ServicesSection />
+      <Testimonials />
       <AboutSection />
       <ProjectsSection />
       <CTASection />
+
       {/* <ContactSection /> */}
       <SocialLinks />
       <Footer />
