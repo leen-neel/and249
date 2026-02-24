@@ -12,6 +12,7 @@ interface Post {
   content: string;
   readTime: string;
   image: string;
+  isDraft: boolean;
   tags: string[];
 }
 
@@ -51,7 +52,7 @@ export default function BlogPage() {
         <div className="absolute -bottom-40 right-0 h-[500px] w-[500px] rounded-full bg-teal-500/30 blur-[100px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,10 +76,21 @@ export default function BlogPage() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <PostCard post={post} />
-              {post.id}
             </motion.div>
           ))}
         </div>
+
+        {posts.length === 0 && (
+          <div className="flex flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 bg-white/5 px-8 py-16 text-center md:max-w-xl md:mx-auto">
+            <span className="text-5xl" aria-hidden>
+              😔
+            </span>
+            <p className="text-lg text-gray-400 leading-relaxed">
+              Nothing here yet. Either the blog is still warming up or the
+              drafts are hiding. Check back soon.
+            </p>
+          </div>
+        )}
       </div>
     </main>
   );

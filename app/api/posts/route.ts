@@ -12,6 +12,8 @@ function getSortedPostsData(): Post[] {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
+    const isDraft =
+      data.isDraft === true || data.isDraft === "true";
 
     return {
       id,
@@ -21,11 +23,18 @@ function getSortedPostsData(): Post[] {
       excerpt: data.excerpt,
       readTime: data.readTime,
       image: data.image,
-      tags: data.tags,
+      tags: data.tags ?? [],
+      isDraft: !!isDraft,
     };
   });
 
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  const sorted = allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+
+  // In production, hide drafts; in dev, show all
+  if (process.env.NODE_ENV === "production") {
+    return sorted.filter((post) => !post.isDraft);
+  }
+  return sorted;
 }
 
 export async function GET() {
