@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface Post {
   title: string;
@@ -64,7 +65,7 @@ export default function BlogPost() {
         <div className="absolute -bottom-40 right-0 h-[500px] w-[500px] rounded-full bg-teal-500/30 blur-[100px]" />
       </div>
 
-      <article className="relative mx-auto max-w-4xl px-4 py-20">
+      <article className="relative mx-auto max-w-4xl px-4 py-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -95,7 +96,9 @@ export default function BlogPost() {
           )}
 
           <div className="prose prose-invert max-w-none">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {post.content}
+            </ReactMarkdown>
           </div>
 
           <div className="mt-12 flex flex-wrap gap-2">

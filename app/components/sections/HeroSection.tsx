@@ -334,7 +334,7 @@ const HeroSection = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 glow-effect" />
               <Image
-                src="/Me.png"
+                src="/Neel.jpg"
                 alt="Hero Image"
                 fill
                 className="object-cover"

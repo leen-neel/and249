@@ -23,6 +23,10 @@ export default function FloatingNav({
       link: "/#about",
     },
     {
+      name: "Blog",
+      link: "/blog",
+    },
+    {
       name: "Projects",
       link: "/#projects",
     },
