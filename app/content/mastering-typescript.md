@@ -4,6 +4,7 @@ date: "2024-03-10"
 excerpt: "A comprehensive guide to using TypeScript effectively in your projects to improve code quality and developer experience."
 readTime: "10 min"
 image: "/blog/typescript-guide.jpg"
+isDraft: true
 tags: ["TypeScript", "Development", "Best Practices"]
 ---
 
@@ -24,14 +25,12 @@ TypeScript offers several advantages:
 ## Advanced TypeScript Features
 
 1. **Type System**
-
    - Union and intersection types
    - Generics
    - Utility types
    - Type guards
 
 2. **Object-Oriented Programming**
-
    - Classes and interfaces
    - Inheritance
    - Access modifiers

@@ -7,4 +7,5 @@ interface Post {
   readTime: string;
   image: string;
   tags: string[];
+  isDraft: boolean;
 }

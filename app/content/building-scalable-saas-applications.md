@@ -3,6 +3,7 @@ title: "Building Scalable SaaS Applications with Next.js"
 date: "2024-03-15"
 excerpt: "Learn how to build and scale modern SaaS applications using Next.js, TypeScript, and best practices for performance and user experience."
 readTime: "8 min"
+isDraft: true
 image: "/blog/markdown-style-guide.jpeg"
 tags: ["Next.js", "SaaS", "TypeScript"]
 ---
@@ -24,19 +25,16 @@ Next.js provides an excellent foundation for building SaaS applications due to i
 ## Key Components of a Scalable SaaS App
 
 1. **Authentication & Authorization**
-
    - Implement secure user authentication
    - Role-based access control
    - Session management
 
 2. **Database Design**
-
    - Choose the right database for your needs
    - Implement proper indexing
    - Design for scalability
 
 3. **API Architecture**
-
    - RESTful or GraphQL endpoints
    - Rate limiting
    - Caching strategies
