@@ -122,9 +122,9 @@ const CTASection = () => {
               </span>
             </div>
 
-            <h2 className="mb-6 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-3xl font-bold text-transparent md:text-5xl lg:text-6xl">
+            <h2 className="mb-6 bg-gradient-to-br from-white to-gray-400 bg-clip-text pb-2 text-3xl font-bold text-transparent md:text-5xl lg:text-6xl">
               Ready to Build Something
-              <span className="block bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text pb-1 text-transparent">
                 Extraordinary?
               </span>
             </h2>

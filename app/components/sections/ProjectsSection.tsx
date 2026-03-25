@@ -41,7 +41,7 @@ const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h2 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text text-3xl font-bold text-transparent md:text-5xl">
+          <h2 className="bg-gradient-to-br from-white to-gray-400 bg-clip-text pb-2 text-3xl font-bold text-transparent md:text-5xl">
             Featured Projects
           </h2>
           <p className="mt-4 text-gray-400">

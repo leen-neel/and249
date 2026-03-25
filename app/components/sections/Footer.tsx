@@ -81,6 +81,12 @@ const Footer = () => {
                 Projects
               </Link>
               <Link
+                href="/#conferences"
+                className="block text-gray-400 transition-colors hover:text-white"
+              >
+                Conferences
+              </Link>
+              <Link
                 href="/#contact"
                 className="block text-gray-400 transition-colors hover:text-white"
               >
