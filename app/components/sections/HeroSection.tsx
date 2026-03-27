@@ -125,7 +125,7 @@ const HeroSection = () => {
         duration: 0.8,
         ease: "power2.out",
       },
-      "-=0.3"
+      "-=0.3",
     );
 
     // Animate buttons with stagger
@@ -141,7 +141,7 @@ const HeroSection = () => {
           stagger: 0.1,
           ease: "back.out(1.7)",
         },
-        "-=0.2"
+        "-=0.2",
       );
     }
 
@@ -156,7 +156,7 @@ const HeroSection = () => {
           duration: 1,
           ease: "power3.out",
         },
-        "-=0.8"
+        "-=0.8",
       );
 
       // Add floating animation to image
@@ -281,7 +281,7 @@ const HeroSection = () => {
                     backfaceVisibility: "hidden",
                   }}
                 >
-                  Greetings
+                  Greetings!
                 </span>
                 <p>I&apos;m Anindo 👋🏻</p>
               </h1>
