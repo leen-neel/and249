@@ -112,7 +112,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white">Get in Touch</h4>
             <div className="space-y-3">
               <a
-                href="mailto:and24903@gmail.com"
+                href="mailto:hey@anindoneel.com"
                 className="flex items-center gap-3 text-gray-400 transition-colors hover:text-white"
               >
                 <svg
@@ -128,7 +128,7 @@ const Footer = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                and24903@gmail.com
+                hey@anindoneel.com
               </a>
               <div className="flex items-center gap-3 text-gray-400">
                 <svg
