@@ -4,7 +4,7 @@ conference: "WordCamp Surat"
 year: "2025"
 tag: "Software Engineering"
 summary: "Modern WordPress development is more than shipping features—it's about designing systems that remain maintainable, scalable, and adaptable. This session explores how software engineering principles like modular architecture, separation of concerns, testing, and automation help developers build code that stands the test of time."
-slidesUrl: "https://speakerdeck.com/"
+slidesUrl: "https://docs.google.com/presentation/d/1MYl2Bf5p6eRHJ4jS-P5bVv2LAvdXLwr2/edit?usp=sharing&ouid=110736075488342045293&rtpof=true&sd=true"
 slug: "software-engineering-for-wordpress"
 ---
 

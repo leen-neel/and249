@@ -4,7 +4,7 @@ conference: "WordCamp Kolhapur"
 year: "2026"
 tag: "Freelancing"
 summary: "Why small client requests create outsized stress for WordPress professionals—and how clarity, boundaries, and defined expectations protect mental energy."
-slidesUrl: "https://speakerdeck.com/"
+slidesUrl: "https://docs.google.com/presentation/d/1RaY-ZiHD_DlRO3Lu9038l35ZneQePt26lvsoquUfpxk/edit?usp=sharing"
 slug: "stress-from-scope-creep"
 ---
 
