@@ -1,97 +1,89 @@
-"use client";
+import { getBlogPosts } from "@/lib/content";
+import { formatDisplayDate } from "@/lib/utils";
+import { Navbar } from "@/components/Navbar";
+import { createListPageMetadata } from "@/lib/seo";
+import Link from "next/link";
+import { ArrowLeft, Plus } from "lucide-react";
 
-import { motion } from "framer-motion";
-import PostCard from "../components/blog/PostCard";
-import { useEffect, useState } from "react";
-
-interface Post {
-  id: string;
-  title: string;
-  date: string;
-  excerpt: string;
-  content: string;
-  readTime: string;
-  image: string;
-  isDraft: boolean;
-  tags: string[];
-}
+export const metadata = createListPageMetadata({
+  title: "Blog",
+  description:
+    "Technical essays and strategy deep-dives on SaaS development, MVP delivery, and product engineering.",
+  path: "/blog",
+});
 
 export default function BlogPage() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("/api/posts");
-        const data = await response.json();
-        setPosts(data);
-      } catch (error) {
-        console.error("Failed to fetch posts:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPosts();
-  }, []);
-
-  if (loading) {
-    return (
-      <main className="relative min-h-screen bg-black text-white">
-        <div className="flex h-screen items-center justify-center">
-          <div className="text-xl">Loading...</div>
-        </div>
-      </main>
-    );
-  }
+  const posts = getBlogPosts();
 
   return (
-    <main className="relative min-h-screen bg-black text-white">
-      <div className="relative">
-        <div className="absolute -top-40 left-0 h-[500px] w-[500px] rounded-full bg-purple-500/30 blur-[100px]" />
-        <div className="absolute -bottom-40 right-0 h-[500px] w-[500px] rounded-full bg-teal-500/30 blur-[100px]" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-4 py-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
-        >
-          <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-            Blog
-          </h1>
-          <p className="text-lg text-gray-400">
-            Thoughts, tutorials, and insights about web development
-          </p>
-        </motion.div>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post, index) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <PostCard post={post} />
-            </motion.div>
-          ))}
+    <div className="min-h-screen bg-[#121214] text-neutral-300 font-sans selection:bg-teal-900 selection:text-teal-100 relative flex flex-col">
+      <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80">
+        <div className="w-full h-[80px] border-b border-dashed border-neutral-800/80 relative">
+          <Navbar />
+          <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+            <Plus />
+          </div>
+          <div className="absolute -bottom-[9px] -right-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+            <Plus />
+          </div>
         </div>
 
-        {posts.length === 0 && (
-          <div className="flex flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 bg-white/5 px-8 py-16 text-center md:max-w-xl md:mx-auto">
-            <span className="text-5xl" aria-hidden>
-              😔
-            </span>
-            <p className="text-lg text-gray-400 leading-relaxed">
-              Nothing here yet. Either the blog is still warming up or the
-              drafts are hiding. Check back soon.
+        <main className="flex-1 flex flex-col relative">
+          <div className="w-full px-8 lg:px-12 py-16 lg:py-20 border-b border-dashed border-neutral-800/80 relative flex flex-col">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-teal-400 transition-colors mb-12"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              BACK TO HOME
+            </Link>
+
+            <h1 className="text-3xl lg:text-4xl font-medium text-white tracking-tight leading-tight mb-4">
+              Articles & Insights
+            </h1>
+            <p className="text-sm text-neutral-400 max-w-2xl leading-relaxed">
+              A lean, editorial directory of technical essays and strategy
+              deep-dives.
             </p>
+
+            <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+            <div className="absolute -bottom-[9px] -right-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
           </div>
-        )}
+
+          <div className="flex flex-col w-full">
+            {posts.map((post) => (
+              <Link
+                href={`/blog/${post.slug}`}
+                key={post.slug}
+                className="group flex flex-col lg:flex-row lg:items-center justify-start gap-6 lg:gap-16 px-8 lg:px-12 py-8 border-b border-dashed border-neutral-800/80 hover:bg-neutral-900/40 transition-colors relative"
+              >
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-xs font-mono text-neutral-500">
+                    {formatDisplayDate(post.frontmatter.date)}
+                  </span>
+                </div>
+
+                <div className="flex-1">
+                  <h2 className="text-lg font-medium text-neutral-200 group-hover:text-teal-400 transition-colors tracking-tight">
+                    {post.frontmatter.title}
+                  </h2>
+                </div>
+
+                <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+                  <Plus />
+                </div>
+                <div className="absolute -bottom-[9px] -right-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+                  <Plus />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </main>
       </div>
-    </main>
+    </div>
   );
 }

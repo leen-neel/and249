@@ -1,100 +1,41 @@
-import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import FloatingNav from "./components/sections/FloatingNav";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { baseMetadata } from "@/lib/seo";
 
-import { GoogleAnalytics } from "@next/third-parties/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-display",
+});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const viewport: Viewport = {
-  themeColor: "#53e6cc",
-  width: "device-width",
-  initialScale: 1,
-};
-
-export const metadata: Metadata = {
-  title: "Anindo Neel Dutta – Full-Stack Developer for SaaS, AI & Web Apps",
-  description:
-    "Full-stack engineer specializing in AI, voice tech, and scalable SaaS. Explore Anindo Neel Dutta's portfolio, projects, and writing on web development, product building, and modern frontend tools.",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ),
-  generator: "Next.js",
-  applicationName: "Anindo's Portfolio",
-  referrer: "origin-when-cross-origin",
-  keywords: [
-    "Full Stack Developer",
-    "Web Development",
-    "Portfolio",
-    "React",
-    "Next.js",
-    "TypeScript",
-  ],
-  authors: [{ name: "Anindo" }],
-  creator: "Anindo",
-  publisher: "Anindo",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  openGraph: {
-    type: "website",
-    title: "Anindo Neel Dutta – Full-Stack Developer for SaaS, AI & Web Apps",
-    description:
-      "Full-stack engineer specializing in AI, voice tech, and scalable SaaS. Explore Anindo Neel Dutta's portfolio, projects, and writing on web development, product building, and modern frontend tools.",
-    url: "/",
-    siteName: "Anindo's Portfolio",
-    images: [
-      {
-        url: "/og/image.png",
-        width: 1200,
-        height: 630,
-        alt: "Anindo's Portfolio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Anindo Neel Dutta – Full-Stack Developer for SaaS, AI & Web Apps",
-    description:
-      "Full-stack engineer specializing in AI, voice tech, and scalable SaaS. Explore Anindo Neel Dutta's portfolio, projects, and writing on web development, product building, and modern frontend tools.",
-    images: ["/og/image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+export const metadata = baseMetadata;
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html
+      data-scroll-behavior="smooth"
+      lang="en"
+      className={cn(
+        "font-sans",
+        inter.variable,
+        spaceGrotesk.variable,
+        jetbrainsMono.variable
+      )}
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+        suppressHydrationWarning
+        className="bg-[#121214] text-neutral-300 antialiased"
       >
-        <FloatingNav>{children}</FloatingNav>
-        <GoogleAnalytics gaId="G-YBDW21NF4Y" />
+        {children}
       </body>
     </html>
   );

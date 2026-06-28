@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -37,14 +37,18 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -63,11 +67,12 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -97,11 +102,11 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -118,48 +123,263 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: #121214;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+.stroke-text {
+  -webkit-text-stroke: 1px #262626;
+  color: transparent;
 }
 
-/* Custom Scrollbar Styles */
+/* Minimal scrollbar */
 * {
-  /* Firefox */
   scrollbar-width: thin;
-  scrollbar-color: oklch(0.5 0 0 / 0.3) transparent;
+  scrollbar-color: color-mix(in oklch, var(--muted-foreground) 30%, transparent)
+    transparent;
 }
-
 *::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
 }
-
 *::-webkit-scrollbar-track {
   background: transparent;
 }
-
 *::-webkit-scrollbar-thumb {
-  background: oklch(0.5 0 0 / 0.3);
-  border-radius: 4px;
+  background: color-mix(in oklch, var(--muted-foreground) 30%, transparent);
+  border-radius: 9999px;
   transition: background 0.2s ease;
 }
-
 *::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.4 0 0 / 0.5);
+  background: color-mix(in oklch, var(--muted-foreground) 50%, transparent);
+}
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
-.dark * {
-  /* Firefox dark mode */
-  scrollbar-color: oklch(0.6 0 0 / 0.4) transparent;
+@keyframes ambient-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
 }
 
-.dark *::-webkit-scrollbar-thumb {
-  background: oklch(0.6 0 0 / 0.4);
+.hero-glow {
+  animation: ambient-pulse 10s ease-in-out infinite;
 }
 
-.dark *::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.7 0 0 / 0.6);
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow {
+    animation: none;
+  }
+
+  .nav-link::after {
+    transition: none;
+  }
+}
+
+/* Markdown code blocks — rehype-highlight / highlight.js */
+.markdown-content pre {
+  overflow-x: auto;
+  border-radius: 0.25rem;
+  border: 1px solid #262626;
+  background-color: #18181b;
+}
+
+.markdown-content pre:has(.mermaid-diagram) {
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.markdown-content pre code.hljs {
+  display: block;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  background: transparent;
+  color: #d4d4d8;
+}
+
+.markdown-content :not(pre) > code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  color: #2dd4bf;
+  background-color: #18181b;
+  border: 1px solid #262626;
+  border-radius: 0.125rem;
+  padding: 0.125rem 0.375rem;
+}
+
+.markdown-content :not(pre) > code::before,
+.markdown-content :not(pre) > code::after {
+  content: none;
+}
+
+/* Mermaid diagrams — single container, no nested SVG background */
+.markdown-content .mermaid-diagram svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.markdown-content .mermaid-diagram svg rect.background {
+  fill: transparent !important;
+  stroke: none !important;
+}
+
+.markdown-content .hljs-comment,
+.markdown-content .hljs-quote {
+  color: #71717a;
+  font-style: italic;
+}
+
+.markdown-content .hljs-keyword,
+.markdown-content .hljs-selector-tag,
+.markdown-content .hljs-built_in {
+  color: #2dd4bf;
+}
+
+.markdown-content .hljs-string,
+.markdown-content .hljs-attr,
+.markdown-content .hljs-attribute {
+  color: #a5f3fc;
+}
+
+.markdown-content .hljs-number,
+.markdown-content .hljs-literal,
+.markdown-content .hljs-symbol {
+  color: #fcd34d;
+}
+
+.markdown-content .hljs-title,
+.markdown-content .hljs-section,
+.markdown-content .hljs-name {
+  color: #93c5fd;
+}
+
+.markdown-content .hljs-variable,
+.markdown-content .hljs-template-variable,
+.markdown-content .hljs-type {
+  color: #fca5a5;
+}
+
+.markdown-content .hljs-meta,
+.markdown-content .hljs-regexp {
+  color: #c4b5fd;
+}
+
+/* Markdown images */
+.markdown-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border-radius: 0.25rem;
+  border: 1px solid #262626;
+  background-color: #18181b;
+}
+
+/* Markdown blockquotes */
+.markdown-content blockquote {
+  margin: 1.75rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 2px solid #134e4a;
+  background-color: #18181b;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.markdown-content blockquote p {
+  margin: 0;
+  color: #d4d4d8;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* Markdown tables */
+.markdown-content table {
+  width: 100%;
+  margin: 1.75rem 0;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.markdown-content thead {
+  border-bottom: 1px dashed #404040;
+}
+
+.markdown-content th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2dd4bf;
+  background-color: #18181b;
+}
+
+.markdown-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #262626;
+  color: #a3a3a3;
+  vertical-align: top;
+}
+
+.markdown-content td strong {
+  color: #d4d4d8;
+  font-weight: 500;
+}
+
+.markdown-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown-content tbody tr:hover td {
+  background-color: #18181b;
+}
+
+/* Task lists */
+.markdown-content input[type="checkbox"] {
+  margin-right: 0.5rem;
+  accent-color: #2dd4bf;
+}
+
+.markdown-content li:has(input[type="checkbox"]) {
+  list-style: none;
+  margin-left: -1.25rem;
+  color: #a3a3a3;
 }
