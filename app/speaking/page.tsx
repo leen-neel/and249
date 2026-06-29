@@ -1,24 +1,37 @@
 import { getSpeakingAppearances } from "@/lib/content";
 import { formatDisplayDate } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
-import { createListPageMetadata } from "@/lib/seo";
+import { createCollectionPageJsonLd, createListPageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Plus } from "lucide-react";
 
-export const metadata = createListPageMetadata({
+const listMetadata = {
   title: "Speaking",
   description:
     "Talks from WordCamp and elsewhere — WordPress engineering, scope creep, and building software that outlasts the project.",
   path: "/speaking",
   imagePath: "/speaking.png",
-});
+} as const;
+
+export const metadata = createListPageMetadata(listMetadata);
 
 export default function SpeakingPage() {
   const appearances = getSpeakingAppearances();
 
   return (
     <div className="min-h-screen bg-[#121214] text-neutral-300 font-sans selection:bg-teal-900 selection:text-teal-100 relative flex flex-col">
+      <JsonLd
+        data={createCollectionPageJsonLd({
+          ...listMetadata,
+          items: appearances.map((talk) => ({
+            name: talk.frontmatter.title,
+            path: `/speaking/${talk.slug}`,
+            description: talk.frontmatter.summary,
+          })),
+        })}
+      />
       <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80">
         <div className="w-full h-[80px] border-b border-dashed border-neutral-800/80 relative">
           <Navbar />

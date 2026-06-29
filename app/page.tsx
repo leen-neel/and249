@@ -7,7 +7,7 @@ import { CaseStudy } from "@/components/CaseStudy";
 import { Profile } from "@/components/Profile";
 import { Contact } from "@/components/Contact";
 import { JsonLd } from "@/components/JsonLd";
-import { createPersonJsonLd } from "@/lib/seo";
+import { createPersonJsonLd, createWebPageJsonLd, siteConfig } from "@/lib/seo";
 
 import { Plus } from "lucide-react";
 import Link from "next/link";
@@ -15,7 +15,16 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#121214] text-neutral-300 font-sans selection:bg-teal-900 selection:text-teal-100 relative flex flex-col">
-      <JsonLd data={createPersonJsonLd()} />
+      <JsonLd
+        data={[
+          createPersonJsonLd(),
+          createWebPageJsonLd({
+            name: siteConfig.title,
+            description: siteConfig.description,
+            path: "/",
+          }),
+        ]}
+      />
       <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80">
         <div className="w-full h-[80px] border-b border-dashed border-neutral-800/80 relative">
           <Navbar />

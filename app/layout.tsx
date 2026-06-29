@@ -1,7 +1,8 @@
 import "./globals.css";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { baseMetadata } from "@/lib/seo";
+import { baseMetadata, createWebSiteJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className="bg-[#121214] text-neutral-300 antialiased"
       >
+        <JsonLd data={createWebSiteJsonLd()} />
         <GoogleAnalytics gaId="G-YBDW21NF4Y" />
 
         {children}

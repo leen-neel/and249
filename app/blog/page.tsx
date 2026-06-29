@@ -1,23 +1,36 @@
 import { getBlogPosts } from "@/lib/content";
 import { formatDisplayDate } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
-import { createListPageMetadata } from "@/lib/seo";
+import { createCollectionPageJsonLd, createListPageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import Link from "next/link";
 import { ArrowLeft, Plus } from "lucide-react";
 
-export const metadata = createListPageMetadata({
+const listMetadata = {
   title: "Blog",
   description:
     "Writing on MVPs, SaaS builds, and the engineering trade-offs you only notice after something ships.",
   path: "/blog",
   imagePath: "/blog.png",
-});
+} as const;
+
+export const metadata = createListPageMetadata(listMetadata);
 
 export default function BlogPage() {
   const posts = getBlogPosts();
 
   return (
     <div className="min-h-screen bg-[#121214] text-neutral-300 font-sans selection:bg-teal-900 selection:text-teal-100 relative flex flex-col">
+      <JsonLd
+        data={createCollectionPageJsonLd({
+          ...listMetadata,
+          items: posts.map((post) => ({
+            name: post.frontmatter.title,
+            path: `/blog/${post.slug}`,
+            description: post.frontmatter.description,
+          })),
+        })}
+      />
       <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80">
         <div className="w-full h-[80px] border-b border-dashed border-neutral-800/80 relative">
           <Navbar />

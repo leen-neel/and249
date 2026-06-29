@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ContextualFooter } from "@/components/ContextualFooter";
 import type { Metadata } from "next";
 import { formatDisplayDate } from "@/lib/utils";
-import { createArticleMetadata, createCreativeWorkJsonLd } from "@/lib/seo";
+import { createArticleMetadata, createBreadcrumbJsonLd, createCreativeWorkJsonLd, createWebPageJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { FadeUp, Reveal } from "@/components/motion/reveal";
 import { ArrowLeft, Plus } from "lucide-react";
@@ -58,13 +58,25 @@ export default async function CaseStudyPage({
   return (
     <div className="min-h-screen bg-[#121214] text-neutral-300 font-sans selection:bg-teal-900 selection:text-teal-100 relative flex flex-col">
       <JsonLd
-        data={createCreativeWorkJsonLd({
-          title: frontmatter.title,
-          description: frontmatter.summary,
-          path: `/case-studies/${slug}`,
-          publishedTime: frontmatter.date,
-          tags: frontmatter.tech,
-        })}
+        data={[
+          createWebPageJsonLd({
+            name: frontmatter.title,
+            description: frontmatter.summary,
+            path: `/case-studies/${slug}`,
+          }),
+          createCreativeWorkJsonLd({
+            title: frontmatter.title,
+            description: frontmatter.summary,
+            path: `/case-studies/${slug}`,
+            publishedTime: frontmatter.date,
+            tags: frontmatter.tech,
+          }),
+          createBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Case Studies", path: "/case-studies" },
+            { name: frontmatter.title, path: `/case-studies/${slug}` },
+          ]),
+        ]}
       />
       <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80">
         <div className="w-full h-[80px] border-b border-dashed border-neutral-800/80 relative">

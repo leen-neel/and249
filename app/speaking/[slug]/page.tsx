@@ -6,7 +6,14 @@ import Link from "next/link";
 import { ContextualFooter } from "@/components/ContextualFooter";
 import type { Metadata } from "next";
 import { formatDisplayDate } from "@/lib/utils";
-import { createArticleMetadata, extractMarkdownExcerpt } from "@/lib/seo";
+import {
+  createArticleMetadata,
+  createBreadcrumbJsonLd,
+  createSpeakingEventJsonLd,
+  createWebPageJsonLd,
+  extractMarkdownExcerpt,
+} from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { FadeUp, Reveal } from "@/components/motion/reveal";
 import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 
@@ -54,9 +61,35 @@ export default async function SpeakingDetailPage({
   }
 
   const { frontmatter, content } = talk;
+  const description = frontmatter.summary ?? extractMarkdownExcerpt(content);
 
   return (
     <div className="min-h-screen bg-[#121214] text-neutral-300 font-sans selection:bg-teal-900 selection:text-teal-100 relative flex flex-col">
+      <JsonLd
+        data={[
+          createWebPageJsonLd({
+            name: frontmatter.title,
+            description,
+            path: `/speaking/${slug}`,
+          }),
+          createSpeakingEventJsonLd({
+            title: frontmatter.title,
+            description,
+            path: `/speaking/${slug}`,
+            conference: frontmatter.conference,
+            date: frontmatter.date,
+            year: frontmatter.year,
+            tag: frontmatter.tag,
+            slidesUrl: frontmatter.slidesUrl,
+            videoUrl: frontmatter.videoUrl,
+          }),
+          createBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Speaking", path: "/speaking" },
+            { name: frontmatter.title, path: `/speaking/${slug}` },
+          ]),
+        ]}
+      />
       <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80">
         <div className="w-full h-[80px] border-b border-dashed border-neutral-800/80 relative">
           <Navbar />
