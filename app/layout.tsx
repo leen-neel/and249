@@ -3,6 +3,8 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { baseMetadata } from "@/lib/seo";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -35,6 +37,8 @@ export default function RootLayout({
         suppressHydrationWarning
         className="bg-[#121214] text-neutral-300 antialiased"
       >
+        <GoogleAnalytics gaId="G-YBDW21NF4Y" />
+
         {children}
       </body>
     </html>

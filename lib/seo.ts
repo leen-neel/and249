@@ -134,13 +134,17 @@ export function createListPageMetadata({
   title,
   description,
   path,
+  imagePath,
 }: {
   title: string;
   description: string;
   path: string;
+  imagePath?: string;
 }): Metadata {
   const url = `${siteConfig.url}${path}`;
   const fullTitle = `${title} — ${siteConfig.name}`;
+  const images = getOgImages(imagePath, title);
+  const imageUrls = images.map((image) => image.url);
 
   return {
     title,
@@ -152,13 +156,13 @@ export function createListPageMetadata({
       title: fullTitle,
       description,
       siteName: siteConfig.name,
-      images: getOgImages(),
+      images,
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [absoluteUrl(siteConfig.ogImage.path)],
+      images: imageUrls,
     },
   };
 }

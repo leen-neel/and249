@@ -9,8 +9,9 @@ import { ArrowLeft, Plus } from "lucide-react";
 export const metadata = createListPageMetadata({
   title: "Speaking",
   description:
-    "Conference talks, workshops, and stage appearances on SaaS architecture, edge compute, and product engineering.",
+    "Talks from WordCamp and elsewhere — WordPress engineering, scope creep, and building software that outlasts the project.",
   path: "/speaking",
+  imagePath: "/speaking.png",
 });
 
 export default function SpeakingPage() {
@@ -43,8 +44,8 @@ export default function SpeakingPage() {
               Speaking Appearances
             </h1>
             <p className="text-sm text-neutral-400 max-w-2xl leading-relaxed">
-              Conference talks, workshops, and stage appearances on SaaS
-              architecture, edge compute, and product engineering.
+              Conference talks and workshops — mostly on WordPress, scalability,
+              and why scope creep wrecks teams.
             </p>
 
             <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">

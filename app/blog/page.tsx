@@ -8,8 +8,9 @@ import { ArrowLeft, Plus } from "lucide-react";
 export const metadata = createListPageMetadata({
   title: "Blog",
   description:
-    "Technical essays and strategy deep-dives on SaaS development, MVP delivery, and product engineering.",
+    "Writing on MVPs, SaaS builds, and the engineering trade-offs you only notice after something ships.",
   path: "/blog",
+  imagePath: "/blog.png",
 });
 
 export default function BlogPage() {

@@ -8,8 +8,9 @@ import { ArrowLeft, Plus } from "lucide-react";
 export const metadata = createListPageMetadata({
   title: "Case Studies",
   description:
-    "Product engineering and MVP delivery case studies — translating complex requirements into high-performance architectures.",
+    "How I shipped DocPilot, an outbound recruiting tool, and other client work — under real deadlines, with real constraints.",
   path: "/case-studies",
+  imagePath: "/case-studies.png",
 });
 
 export default function CaseStudiesPage() {
@@ -42,9 +43,8 @@ export default function CaseStudiesPage() {
               Case Studies
             </h1>
             <p className="text-sm text-neutral-400 max-w-2xl leading-relaxed">
-              Product engineering and MVP delivery focus. Translating complex
-              requirements into high-performance architectures, optimized for
-              rapid validation and scalable growth.
+              Projects I&apos;ve shipped for clients. What we built, how long it
+              took, and what moved the needle.
             </p>
 
             <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
