@@ -21,6 +21,28 @@ export interface BlogPostFrontmatter {
   tags?: string[]
 }
 
+function parsePostDate(date: string): Date {
+  const [year, month, day] = date.split('-').map(Number)
+  return new Date(Date.UTC(year, month - 1, day))
+}
+
+function startOfTodayUtc(): Date {
+  const now = new Date()
+  return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()))
+}
+
+export function isBlogPostPublished(date: string): boolean {
+  return parsePostDate(date).getTime() <= startOfTodayUtc().getTime()
+}
+
+function includeScheduledBlogPosts(): boolean {
+  return process.env.NODE_ENV !== 'production'
+}
+
+function isBlogPostVisible(date: string): boolean {
+  return includeScheduledBlogPosts() || isBlogPostPublished(date)
+}
+
 export function getCaseStudies() {
   const caseStudiesDir = path.join(CONTENT_DIR, 'case-studies')
   if (!fs.existsSync(caseStudiesDir)) return []
@@ -68,14 +90,22 @@ export function getBlogPosts() {
       }
     })
 
-  return posts.sort((a, b) => (new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()))
+  return posts
+    .filter((post) => isBlogPostVisible(post.frontmatter.date))
+    .sort((a, b) => (new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()))
 }
 
 export function getBlogPost(slug: string) {
   const markdownWithMeta = fs.readFileSync(path.join(CONTENT_DIR, 'blog', `${slug}.md`), 'utf-8')
   const { data, content } = matter(markdownWithMeta)
+  const frontmatter = data as BlogPostFrontmatter
+
+  if (!isBlogPostVisible(frontmatter.date)) {
+    throw new Error(`Blog post "${slug}" is not published yet`)
+  }
+
   return {
-    frontmatter: data as BlogPostFrontmatter,
+    frontmatter,
     content,
     slug,
   }

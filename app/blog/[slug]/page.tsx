@@ -37,7 +37,7 @@ export async function generateMetadata({
       tags: frontmatter.tags,
     });
   } catch {
-    return { title: "Not Found" };
+    notFound();
   }
 }
 
