@@ -162,3 +162,31 @@ export function getSpeakingAppearance(slug: string) {
     slug,
   }
 }
+
+export interface NoteFrontmatter {
+  date: string
+}
+
+export function getNotes() {
+  const notesDir = path.join(CONTENT_DIR, 'notes')
+  if (!fs.existsSync(notesDir)) return []
+
+  const files = fs.readdirSync(notesDir)
+  const notes = files
+    .filter((filename) => filename.endsWith('.md'))
+    .map((filename) => {
+      const slug = filename.replace(/\.md$/, '')
+      const markdownWithMeta = fs.readFileSync(path.join(notesDir, filename), 'utf-8')
+      const { data, content } = matter(markdownWithMeta)
+      return {
+        slug,
+        frontmatter: data as NoteFrontmatter,
+        body: content.trim(),
+      }
+    })
+
+  return notes.sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+  )
+}

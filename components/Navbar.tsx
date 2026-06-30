@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "/case-studies", label: "Case Studies" },
   { href: "/speaking", label: "Speaking" },
   { href: "/blog", label: "Blog" },
+  { href: "/notes", label: "Notes" },
 ] as const;
 
 const touchButtonClassName =
