@@ -15,6 +15,8 @@ const personConfig = {
     "Anindo Neel Dutta is a tech consultant and full-stack engineer based in India, helping startups build SaaS products, AI-powered systems, and Next.js applications.",
   availability:
     "Currently taking on select engagements for SaaS MVPs, AI integration, and outbound systems.",
+  availabilityChip:
+    "Open for select engagements · 2–4 week sprints",
   contactHeadline: "Ship your MVP or AI system in weeks, not months.",
   coreStack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   contactType: "consulting inquiries",

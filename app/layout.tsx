@@ -28,7 +28,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       lang="en"
       className={cn(
-        "font-sans",
+        "font-sans overflow-x-hidden",
         inter.variable,
         spaceGrotesk.variable,
         jetbrainsMono.variable
@@ -36,7 +36,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className="bg-[#121214] text-neutral-300 antialiased"
+        className="overflow-x-hidden bg-[#121214] text-neutral-300 antialiased"
       >
         <JsonLd data={createWebSiteJsonLd()} />
         <GoogleAnalytics gaId="G-YBDW21NF4Y" />
