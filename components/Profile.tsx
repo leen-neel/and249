@@ -12,7 +12,7 @@ export function Profile() {
       <Reveal>
         <div className="flex flex-col gap-2 px-8 lg:px-12 py-12 border-b border-dashed border-neutral-800/80">
           <span className="text-[10px] font-mono text-neutral-500 tracking-widest uppercase">
-            [ 05 // THE ENGINEER ]
+            [ 06 // THE ENGINEER ]
           </span>
           <h2 className="text-xl lg:text-2xl font-medium tracking-tight text-white mt-2">
             About & Execution Philosophy.

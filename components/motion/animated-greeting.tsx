@@ -49,25 +49,17 @@ export function AnimatedGreeting() {
   }
 
   return (
-    <span className="inline-grid align-bottom">
-      <span
-        className="invisible col-start-1 row-start-1 whitespace-nowrap"
-        aria-hidden
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.span
+        key={GREETINGS[index]}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.35, ease }}
+        className="inline-block whitespace-nowrap text-inherit"
       >
-        Greetings!
-      </span>
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={GREETINGS[index]}
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -14 }}
-          transition={{ duration: 0.4, ease }}
-          className="col-start-1 row-start-1 whitespace-nowrap text-inherit"
-        >
-          {GREETINGS[index]}
-        </motion.span>
-      </AnimatePresence>
-    </span>
+        {GREETINGS[index]}
+      </motion.span>
+    </AnimatePresence>
   );
 }

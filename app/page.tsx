@@ -1,12 +1,15 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { BeforeAfter } from "@/components/BeforeAfter";
+import { Offerings } from "@/components/Offerings";
 import { Projects } from "@/components/Projects";
 import { Insights } from "@/components/Insights";
-import { Capabilities } from "@/components/Capabilities";
 import { CaseStudy } from "@/components/CaseStudy";
+import { EngagementPipeline } from "@/components/EngagementPipeline";
 import { Profile } from "@/components/Profile";
-import { Contact } from "@/components/Contact";
 import { FAQ } from "@/components/FAQ";
+import { TrustStrip } from "@/components/TrustStrip";
+import { Contact } from "@/components/Contact";
 import { JsonLd } from "@/components/JsonLd";
 import {
   createFAQPageJsonLd,
@@ -32,7 +35,7 @@ export default function Home() {
           createFAQPageJsonLd(),
         ]}
       />
-      <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80">
+      <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto overflow-x-hidden border-l border-r border-dashed border-neutral-800/80">
         <div className="w-full h-[80px] border-b border-dashed border-neutral-800/80 relative">
           <Navbar />
           <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
@@ -52,6 +55,27 @@ export default function Home() {
               <Plus />
             </div>
           </div>
+
+          <div className="border-b border-dashed border-neutral-800/80 relative">
+            <BeforeAfter />
+            <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+            <div className="absolute -bottom-[9px] -right-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+          </div>
+
+          <div className="border-b border-dashed border-neutral-800/80 relative">
+            <Offerings />
+            <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+            <div className="absolute -bottom-[9px] -right-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+          </div>
+
           <div className="flex flex-col lg:flex-row border-b border-dashed border-neutral-800/80 relative">
             <div className="w-full lg:w-[65%] border-b lg:border-b-0 lg:border-r border-dashed border-neutral-800/80">
               <Projects />
@@ -74,7 +98,7 @@ export default function Home() {
           </div>
 
           <div className="border-b border-dashed border-neutral-800/80 relative">
-            <Capabilities />
+            <CaseStudy />
             <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
               <Plus />
             </div>
@@ -84,7 +108,7 @@ export default function Home() {
           </div>
 
           <div className="border-b border-dashed border-neutral-800/80 relative">
-            <CaseStudy />
+            <EngagementPipeline />
             <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
               <Plus />
             </div>
@@ -105,6 +129,16 @@ export default function Home() {
 
           <div className="border-b border-dashed border-neutral-800/80 relative">
             <FAQ />
+            <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+            <div className="absolute -bottom-[9px] -right-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+          </div>
+
+          <div className="border-b border-dashed border-neutral-800/80 relative">
+            <TrustStrip />
             <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
               <Plus />
             </div>

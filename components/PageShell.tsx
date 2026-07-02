@@ -35,7 +35,7 @@ export function PageShell({
     <div className="min-h-screen bg-[#121214] text-neutral-300 font-sans selection:bg-teal-900 selection:text-teal-100 relative flex flex-col">
       <div
         className={cn(
-          "relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80",
+          "relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto overflow-x-hidden border-l border-r border-dashed border-neutral-800/80",
           className
         )}
       >
