@@ -102,43 +102,6 @@ export const trustSignals = [
   { label: "Async worldwide", detail: "US · EU · APAC clients" },
 ] as const;
 
-export const heroCodeTabs = [
-  {
-    id: "mvp",
-    label: "MVP API",
-    code: `// Week 2: core product endpoint
-export async function POST(req: Request) {
-  const { userId, payload } = await req.json();
-  const result = await runCoreWorkflow(userId, payload);
-  return Response.json({ ok: true, data: result });
-}`,
-  },
-  {
-    id: "llm",
-    label: "LLM pipeline",
-    code: `// Two-step: classify, then generate
-const intent = await classifyIntent(sourceText);
-const docs = await generateStructuredDocs({
-  intent,
-  glossary: productGlossary,
-  locale: "en",
-});
-return { docs, tokensUsed: docs.usage };`,
-  },
-  {
-    id: "outbound",
-    label: "Outbound worker",
-    code: `// Scheduled discovery + personalized send
-export const outreachJob = schedules.task({
-  cron: "0 */12 * * *",
-  run: async () => {
-    const leads = await discoverHiringSignals();
-    await rankAndEnqueue(leads, { limit: 5 });
-  },
-});`,
-  },
-] as const;
-
 export const marqueeItems = [
   "DocPilot",
   "Outbound recruiting",

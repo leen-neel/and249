@@ -126,7 +126,7 @@
     background-color: #121214;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
   }
 }
 
