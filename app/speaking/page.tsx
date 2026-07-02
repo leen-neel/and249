@@ -1,7 +1,7 @@
 import { getSpeakingAppearances } from "@/lib/content";
 import { formatDisplayDate } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
-import { createCollectionPageJsonLd, createListPageMetadata } from "@/lib/seo";
+import { createCollectionPageJsonLd, createListPageMetadata, siteConfig } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -9,8 +9,7 @@ import { ArrowLeft, Plus } from "lucide-react";
 
 const listMetadata = {
   title: "Speaking",
-  description:
-    "Talks from WordCamp and elsewhere — WordPress engineering, scope creep, and building software that outlasts the project.",
+  description: siteConfig.person.sections.speaking,
   path: "/speaking",
   imagePath: "/speaking.png",
 } as const;

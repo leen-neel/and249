@@ -2,8 +2,11 @@ import * as React from "react";
 import { GridSection } from "./GridSystem";
 import { Reveal } from "./motion/reveal";
 import { Plus } from "lucide-react";
+import { siteConfig } from "@/lib/seo";
 
 export function Profile() {
+  const person = siteConfig.person;
+
   return (
     <GridSection className="flex flex-col w-full" id="profile">
       <Reveal>
@@ -38,7 +41,7 @@ export function Profile() {
                 Role
               </span>
               <span className="text-sm font-medium text-neutral-300">
-                Full-Stack Product Engineer
+                {person.role}
               </span>
             </div>
 
@@ -47,7 +50,7 @@ export function Profile() {
                 Specialization
               </span>
               <span className="text-sm font-medium text-neutral-300">
-                SaaS MVPs & Outbound Systems
+                {person.specialization}
               </span>
             </div>
 
@@ -56,7 +59,7 @@ export function Profile() {
                 Location
               </span>
               <span className="text-sm font-medium text-neutral-300">
-                India
+                {person.homeLocation.country}
               </span>
             </div>
           </div>

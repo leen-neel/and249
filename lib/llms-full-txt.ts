@@ -7,7 +7,7 @@ import {
   getSpeakingAppearances,
 } from "@/lib/content";
 import { llmsAbsoluteUrl } from "@/lib/llms-txt";
-import { siteConfig } from "@/lib/seo";
+import { getPersonOccupationName, siteConfig } from "@/lib/seo";
 
 function formatDocument({
   title,
@@ -94,6 +94,15 @@ export function generateLlmsFullTxt(): string {
     `> ${siteConfig.description}`,
     "",
     `Index: [llms.txt](${llmsAbsoluteUrl("/llms.txt")})`,
+    "",
+    `## About`,
+    `- Role: ${siteConfig.person.role}`,
+    `- Specialization: ${siteConfig.person.specialization}`,
+    `- Occupation: ${getPersonOccupationName()}`,
+    `- Location: ${siteConfig.person.homeLocation.country} (serving ${siteConfig.person.areaServed})`,
+    `- Skills: ${siteConfig.person.skills.join(", ")}`,
+    `- Expertise: ${siteConfig.person.knowsAbout.join(", ")}`,
+    `- Contact: ${llmsAbsoluteUrl(siteConfig.person.contactUrl)}`,
     "",
     "# Blog",
     "",

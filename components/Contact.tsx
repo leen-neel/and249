@@ -6,6 +6,7 @@ import { GridSection } from "./GridSystem";
 import { Button } from "./ui/button";
 import { submitIntake } from "@/app/actions/intake";
 import { Reveal } from "./motion/reveal";
+import { siteConfig } from "@/lib/seo";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -46,12 +47,11 @@ export function Contact() {
       <Reveal className="w-full lg:w-[60%]">
         <div className="flex flex-col gap-6 px-8 lg:px-12 py-16 lg:py-24 border-b lg:border-b-0 lg:border-r border-dashed border-neutral-800/80 justify-center h-full">
           <h2 className="text-3xl lg:text-4xl font-medium text-white tracking-tight leading-tight max-w-lg">
-            Building the next generation of high-performance software.
+            {siteConfig.person.contactHeadline}
           </h2>
           <p className="text-base text-neutral-400 max-w-md leading-relaxed">
-            Currently taking on select engineering engagements and strategic
-            consulting for early-stage founders and product teams. Let&apos;s
-            discuss your architecture.
+            {siteConfig.person.availability} Let&apos;s discuss your
+            architecture.
           </p>
         </div>
       </Reveal>

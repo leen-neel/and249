@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { siteConfig } from "@/lib/seo";
 import { Button } from "./ui/button";
 
 const NAV_LINKS = [
@@ -62,7 +63,7 @@ export function Navbar() {
               &amp;
             </span>
             <span className="text-base sm:text-lg font-medium tracking-tight text-white truncate">
-              Anindo Neel Dutta
+              {siteConfig.name}
             </span>
           </div>
         </Link>

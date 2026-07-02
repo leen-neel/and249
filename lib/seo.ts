@@ -7,12 +7,58 @@ function getSiteUrl(): string {
   return "http://localhost:3000";
 }
 
+const personConfig = {
+  role: "Full-Stack Product Engineer",
+  specialization: "SaaS MVPs & AI Systems",
+  publicTitle: "SaaS Product Engineer & Technical Consultant",
+  tagline:
+    "Anindo Neel Dutta is a tech consultant and full-stack engineer based in India, helping startups build SaaS products, AI-powered systems, and Next.js applications.",
+  availability:
+    "Currently taking on select engagements for SaaS MVPs, AI integration, and outbound systems.",
+  contactHeadline: "Ship your MVP or AI system in weeks, not months.",
+  coreStack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+  contactType: "consulting inquiries",
+  contactUrl: "/#engagement",
+  areaServed: "Worldwide",
+  homeLocation: { country: "India" },
+  skills: [
+    "SaaS MVP development",
+    "Next.js",
+    "TypeScript",
+    "LLM pipelines",
+    "Outbound automation",
+    "API documentation automation",
+    "GTM/GA4 debugging",
+  ],
+  knowsAbout: [
+    "LLM pipelines",
+    "Two-step LLM classification",
+    "Next.js",
+    "TypeScript",
+    "GTM/GA4 debugging",
+    "Google Tag Manager",
+    "Google Analytics 4",
+    "SaaS MVP architecture",
+    "Outbound automation systems",
+    "API documentation automation",
+    "Conversion tracking",
+    "WordPress scalability",
+  ],
+  sections: {
+    blog: "Deep dives on SaaS MVPs, LLM pipelines, GTM/GA4 debugging, and engineering trade-offs after shipping.",
+    caseStudies:
+      "DocPilot, outbound recruiting automation, and other client work — shipped under real deadlines.",
+    speaking:
+      "WordCamp talks on WordPress engineering, scope creep, and software that outlasts the project.",
+  },
+} as const;
+
 export const siteConfig = {
   name: "Anindo Neel Dutta",
-  title: "Anindo Neel Dutta | Tech Consultant & Full-Stack Engineer",
+  title: `Anindo Neel Dutta | ${personConfig.publicTitle}`,
   description:
-    "Tech consultant and full-stack engineer helping startups and businesses build SaaS products, AI-powered systems, and high-performance web applications. Based in India, working globally.",
-  jobTitle: "Tech Consultant & Full-Stack Engineer",
+    "Full-stack product engineer helping early-stage founders ship SaaS MVPs, AI-powered systems, and outbound automation. Based in India, working worldwide.",
+  jobTitle: personConfig.publicTitle,
   url: getSiteUrl(),
   locale: "en_US",
   social: {
@@ -21,25 +67,69 @@ export const siteConfig = {
     x: "https://x.com/anindoneel",
   },
   keywords: [
-    "tech consultant",
-    "technology consultant",
-    "full-stack engineer",
-    "SaaS development",
-    "AI integration",
+    "SaaS MVP developer",
+    "SaaS product engineer",
+    "LLM pipeline engineer",
+    "outbound automation",
     "Next.js developer",
-    "startup consultant",
-    "software consultant",
-    "web application development",
+    "full-stack engineer",
+    "technical consultant",
+    "AI integration",
+    "startup engineer",
     "Anindo Neel Dutta",
+  ],
+
+  person: personConfig,
+
+  faq: [
+    {
+      question: "Do you work with early-stage startups?",
+      answer:
+        "Yes. I work primarily with pre-seed and seed-stage founders who need a validation-ready MVP without engineering bloat. Most engagements are first-product builds or rescuing MVPs that stalled on scope creep. I take on a small number of clients at a time so you get direct senior-level execution, not a dev shop hand-off.",
+    },
+    {
+      question: "What's your typical MVP timeline?",
+      answer:
+        "A focused SaaS MVP typically ships in 2-4 weeks from kickoff to production. That includes core auth, billing hooks, the main product workflow, and deployment, not months of discovery decks. Timeline depends on scope clarity; ambiguous requirements get trimmed to what validates the business hypothesis fastest.",
+    },
+    {
+      question: "Do you build AI/LLM integrations?",
+      answer:
+        "Yes. I build production LLM pipelines: RAG systems, two-step classification, API doc automation, and outbound agents, not demo chatbots. Integrations use structured prompts, eval loops, and cost controls so they hold up after launch, not just in a prototype.",
+    },
+    {
+      question: "What stack do you use?",
+      answer:
+        "React, Next.js, TypeScript, and Tailwind CSS on the frontend. The backend is Next.js API routes or serverless functions with PostgreSQL or a managed database depending on scale. I pick boring, proven tools so your MVP stays maintainable when you hire a team.",
+    },
+    {
+      question: "Do you work with clients outside India?",
+      answer:
+        "Yes. I'm based in India and work with clients worldwide across US, EU, and APAC time zones. Communication is async-first with overlap for key calls. I've shipped production systems for international startups without requiring on-site presence.",
+    },
+    {
+      question: "What does a typical engagement look like?",
+      answer:
+        "Engagements start with a discovery call, then a fixed-scope sprint to ship the MVP or integration. You get weekly demos, direct Slack access, and handoff docs, with no account managers in between. Most clients stay on for iteration sprints after launch.",
+    },
+    {
+      question: "Do you handle design and UX?",
+      answer:
+        "I implement clean, conversion-focused UI using established design systems and your brand direction. For full custom design, I partner with designers or work from your Figma files. The goal is shippable, professional interfaces, not agency mockups that delay launch.",
+    },
   ],
 
   ogImage: {
     path: "/og.png",
     width: 1200,
     height: 630,
-    alt: "Anindo Neel Dutta — Tech Consultant & Full-Stack Engineer",
+    alt: `Anindo Neel Dutta — ${personConfig.publicTitle}`,
   },
 } as const;
+
+export function getPersonOccupationName(): string {
+  return `${siteConfig.person.role} — ${siteConfig.person.specialization}`;
+}
 function absoluteUrl(path: string): string {
   return path.startsWith("http") ? path : `${siteConfig.url}${path}`;
 }
@@ -186,6 +276,8 @@ const publisher = {
 };
 
 export function createPersonJsonLd() {
+  const person = siteConfig.person;
+
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -196,7 +288,31 @@ export function createPersonJsonLd() {
     jobTitle: siteConfig.jobTitle,
     description: siteConfig.description,
     sameAs: Object.values(siteConfig.social),
-    knowsAbout: siteConfig.keywords,
+    nationality: {
+      "@type": "Country",
+      name: person.homeLocation.country,
+    },
+    homeLocation: {
+      "@type": "Country",
+      name: person.homeLocation.country,
+    },
+    areaServed: person.areaServed,
+    knowsAbout: person.knowsAbout,
+    hasOccupation: {
+      "@type": "Occupation",
+      name: getPersonOccupationName(),
+      occupationLocation: {
+        "@type": "Country",
+        name: person.homeLocation.country,
+      },
+      skills: person.skills,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: person.contactType,
+      url: absoluteUrl(person.contactUrl),
+      availableLanguage: ["English"],
+    },
   };
 }
 
@@ -211,6 +327,22 @@ export function createWebSiteJsonLd() {
     inLanguage: "en-US",
     author: { "@id": personId },
     publisher: { "@id": personId },
+  };
+}
+
+export function createFAQPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${siteConfig.url}/#faq`,
+    mainEntity: siteConfig.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }
 

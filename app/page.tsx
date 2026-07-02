@@ -6,8 +6,14 @@ import { Capabilities } from "@/components/Capabilities";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Profile } from "@/components/Profile";
 import { Contact } from "@/components/Contact";
+import { FAQ } from "@/components/FAQ";
 import { JsonLd } from "@/components/JsonLd";
-import { createPersonJsonLd, createWebPageJsonLd, siteConfig } from "@/lib/seo";
+import {
+  createFAQPageJsonLd,
+  createPersonJsonLd,
+  createWebPageJsonLd,
+  siteConfig,
+} from "@/lib/seo";
 
 import { Plus } from "lucide-react";
 import Link from "next/link";
@@ -23,6 +29,7 @@ export default function Home() {
             description: siteConfig.description,
             path: "/",
           }),
+          createFAQPageJsonLd(),
         ]}
       />
       <div className="relative z-10 flex flex-col w-full min-h-screen max-w-7xl mx-auto border-l border-r border-dashed border-neutral-800/80">
@@ -88,6 +95,16 @@ export default function Home() {
 
           <div className="border-b border-dashed border-neutral-800/80 relative">
             <Profile />
+            <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+            <div className="absolute -bottom-[9px] -right-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
+              <Plus />
+            </div>
+          </div>
+
+          <div className="border-b border-dashed border-neutral-800/80 relative">
+            <FAQ />
             <div className="absolute -bottom-[9px] -left-[9px] text-neutral-600 font-mono text-[10px] w-4 h-4 flex items-center justify-center pointer-events-none">
               <Plus />
             </div>

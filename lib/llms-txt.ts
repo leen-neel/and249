@@ -3,7 +3,7 @@ import {
   getCaseStudies,
   getSpeakingAppearances,
 } from "@/lib/content";
-import { siteConfig } from "@/lib/seo";
+import { getPersonOccupationName, siteConfig } from "@/lib/seo";
 
 export function llmsAbsoluteUrl(path: string): string {
   return path.startsWith("http") ? path : `${siteConfig.url}${path}`;
@@ -19,6 +19,19 @@ function formatSection(title: string, lines: string[]): string {
   return `## ${title}\n${lines.join("\n")}`;
 }
 
+function formatPersonProfile(): string {
+  const person = siteConfig.person;
+
+  return formatSection("About", [
+    `- Role: ${person.role}`,
+    `- Specialization: ${person.specialization}`,
+    `- Occupation: ${getPersonOccupationName()}`,
+    `- Location: ${person.homeLocation.country} (serving ${person.areaServed})`,
+    `- Skills: ${person.skills.join(", ")}`,
+    `- Contact: ${llmsAbsoluteUrl(person.contactUrl)}`,
+  ]);
+}
+
 export function generateLlmsTxt(): string {
   const blogPosts = getBlogPosts();
   const caseStudies = getCaseStudies();
@@ -31,20 +44,21 @@ export function generateLlmsTxt(): string {
     "",
     `Full text: [llms-full.txt](${llmsAbsoluteUrl("/llms-full.txt")})`,
     "",
+    formatPersonProfile(),
     formatSection(
       "Core pages",
       [
-        formatLink("/", "Home", siteConfig.jobTitle),
-        formatLink("/blog", "Blog", "Articles on SaaS, AI systems, and engineering."),
+        formatLink("/", "Home", getPersonOccupationName()),
+        formatLink("/blog", "Blog", siteConfig.person.sections.blog),
         formatLink(
           "/case-studies",
           "Case studies",
-          "Client projects with outcomes, stack, and approach."
+          siteConfig.person.sections.caseStudies
         ),
         formatLink(
           "/speaking",
           "Speaking",
-          "Conference talks and presentations."
+          siteConfig.person.sections.speaking
         ),
       ].filter(Boolean)
     ),
@@ -80,7 +94,7 @@ export function generateLlmsTxt(): string {
     ),
     formatSection(
       "Expertise",
-      siteConfig.keywords.map((keyword) => `- ${keyword}`)
+      siteConfig.person.knowsAbout.map((topic) => `- ${topic}`)
     ),
     formatSection(
       "Profiles",

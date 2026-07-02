@@ -1,15 +1,14 @@
 import { getBlogPosts } from "@/lib/content";
 import { formatDisplayDate } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
-import { createCollectionPageJsonLd, createListPageMetadata } from "@/lib/seo";
+import { createCollectionPageJsonLd, createListPageMetadata, siteConfig } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import Link from "next/link";
 import { ArrowLeft, Plus } from "lucide-react";
 
 const listMetadata = {
   title: "Blog",
-  description:
-    "Writing on MVPs, SaaS builds, and the engineering trade-offs you only notice after something ships.",
+  description: siteConfig.person.sections.blog,
   path: "/blog",
   imagePath: "/blog.png",
 } as const;

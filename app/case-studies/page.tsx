@@ -1,15 +1,14 @@
 import { getCaseStudies } from "@/lib/content";
 import { formatDisplayDate } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
-import { createCollectionPageJsonLd, createListPageMetadata } from "@/lib/seo";
+import { createCollectionPageJsonLd, createListPageMetadata, siteConfig } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import Link from "next/link";
 import { ArrowLeft, Plus } from "lucide-react";
 
 const listMetadata = {
   title: "Case Studies",
-  description:
-    "How I shipped DocPilot, an outbound recruiting tool, and other client work — under real deadlines, with real constraints.",
+  description: siteConfig.person.sections.caseStudies,
   path: "/case-studies",
   imagePath: "/case-studies.png",
 } as const;

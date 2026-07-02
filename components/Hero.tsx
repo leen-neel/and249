@@ -8,6 +8,7 @@ import { Button } from "./ui/button";
 import { FadeUp } from "./motion/reveal";
 import { AnimatedGreeting } from "./motion/animated-greeting";
 import Link from "next/link";
+import { siteConfig } from "@/lib/seo";
 
 function SocialIcon({ children }: { children: ReactNode }) {
   return (
@@ -47,9 +48,7 @@ export function Hero() {
 
           <FadeUp delay={0.08}>
             <p className="max-w-2xl text-base text-neutral-400 font-normal leading-relaxed">
-              Specializing in high-performance web applications, scalable design
-              systems, and modern React architectures. Currently open for
-              high-impact engineering collaboration.
+              {siteConfig.person.tagline}
             </p>
           </FadeUp>
 
@@ -65,7 +64,7 @@ export function Hero() {
               </Link>
               <div className="flex items-center gap-5 text-neutral-500">
                 <Link
-                  href="https://github.com/leen-neel"
+                  href={siteConfig.social.github}
                   aria-label="GitHub"
                   className="transition-all duration-200 hover:text-teal-400 hover:-translate-y-0.5"
                 >
@@ -75,7 +74,7 @@ export function Hero() {
                   </SocialIcon>
                 </Link>
                 <Link
-                  href="https://www.linkedin.com/in/anindoneel/"
+                  href={siteConfig.social.linkedin}
                   aria-label="LinkedIn"
                   className="transition-all duration-200 hover:text-teal-400 hover:-translate-y-0.5"
                 >
@@ -86,7 +85,7 @@ export function Hero() {
                   </SocialIcon>
                 </Link>
                 <Link
-                  href="https://x.com/anindoneel"
+                  href={siteConfig.social.x}
                   aria-label="X"
                   className="transition-all duration-200 hover:text-teal-400 hover:-translate-y-0.5"
                 >
@@ -109,17 +108,15 @@ export function Hero() {
               Core Technologies
             </p>
             <div className="flex flex-wrap justify-start lg:justify-end gap-2">
-              {["React", "Next.js", "TypeScript", "Tailwind CSS"].map(
-                (tech) => (
-                  <Badge
-                    key={tech}
-                    variant="secondary"
-                    className="bg-transparent border border-neutral-800 text-neutral-400 font-normal text-xs rounded-sm transition-all duration-200 hover:bg-teal-950/20 hover:border-teal-900/50 hover:text-teal-400 hover:-translate-y-px"
-                  >
-                    {tech}
-                  </Badge>
-                )
-              )}
+              {siteConfig.person.coreStack.map((tech) => (
+                <Badge
+                  key={tech}
+                  variant="secondary"
+                  className="bg-transparent border border-neutral-800 text-neutral-400 font-normal text-xs rounded-sm transition-all duration-200 hover:bg-teal-950/20 hover:border-teal-900/50 hover:text-teal-400 hover:-translate-y-px"
+                >
+                  {tech}
+                </Badge>
+              ))}
             </div>
           </div>
         </FadeUp>
